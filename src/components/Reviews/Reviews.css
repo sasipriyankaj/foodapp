@@ -1,0 +1,66 @@
+/* Reviews CSS */
+.review-section {
+  padding: 15em 0;
+}
+.review-section h2 {
+  font-size: 4rem;
+  letter-spacing: -0.1rem;
+  line-height: 110%;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+.review-section .review-section-desc {
+  font-size: 1.6rem;
+}
+.review-section .review-desc {
+  font-size: 1.6rem;
+  margin-top: 1rem;
+}
+.reviewer-slide {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+}
+.review-card {
+  flex-grow: 1;
+  height: 100%;
+  padding: 2.4em;
+}
+
+.review-card .content h4 {
+  line-height: 120%;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--main-color);
+  margin: 1.5rem 0;
+}
+.review-card .content p:first-child {
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+}
+.reviewer-info {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.8rem;
+}
+.reviewer-info img {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.reviewer-info .reviewer-name {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+/* Swiper CSS */
+.swiper-slide {
+  height: auto !important;
+  display: flex !important;
+}

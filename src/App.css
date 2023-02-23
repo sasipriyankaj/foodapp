@@ -1,0 +1,29 @@
+/* Global App CSS */
+p {
+  color: var(--light-black);
+}
+
+img {
+  max-width: 100%;
+  object-fit: cover;
+  display: block;
+}
+.main-btn {
+  background-color: var(--main-color) !important;
+}
+.signature {
+  font-family: "Sacramento", cursive !important;
+}
+.number-cursive {
+  font-family: "Monoton", cursive !important;
+}
+.neumorphic {
+  border-radius: 2rem !important;
+  background: #e0e0e0 !important;
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff !important ;
+  border: none !important;
+  -webkit-border-radius: 2rem !important;
+  -moz-border-radius: 2rem !important;
+  -ms-border-radius: 2rem !important;
+  -o-border-radius: 2rem !important;
+}

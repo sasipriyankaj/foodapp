@@ -1,0 +1,42 @@
+/* Menu Section CSS */
+.menu-section {
+  padding: 10em 0;
+}
+.menu-section-top {
+  text-align: center;
+  margin-bottom: 5em;
+}
+.single-card {
+  padding: 2em;
+}
+.single-card img {
+  width: 85%;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+}
+.single-card h2 {
+  font-size: 3.5rem;
+  font-weight: 600;
+  line-height: 100%;
+  letter-spacing: -0.2rem;
+  color: var(--main-black);
+  margin-bottom: 2rem;
+}
+.single-card p {
+  font-size: 1.6rem;
+  margin-bottom: 1.3rem;
+}
+.single-card h4 {
+  color: var(--main-black);
+  font-weight: 500;
+  font-size: 2.3rem;
+}
+.single-card h4 span {
+  color: var(--main-color);
+  font-weight: 700;
+  font-size: 3rem;
+}
+.single-card button {
+  font-size: 1.5rem;
+}

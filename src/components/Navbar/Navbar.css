@@ -1,0 +1,11 @@
+/* Navbar CSS */
+.logo {
+  width: 12rem;
+}
+.right_menu a {
+  display: inline-block;
+  font-size: 1.8rem;
+  padding: 0 1rem;
+  font-weight: 600;
+  color: var(--main-black);
+}

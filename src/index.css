@@ -1,0 +1,29 @@
+/* ==== Mr.Chef ==== */
+
+/* Google Font || "Rubik", "Monoton", "Sacramento"*/
+@import url("https://fonts.googleapis.com/css2?family=Monoton&family=Rubik:wght@300;400;500;600;700;800;900&family=Sacramento&display=swap");
+
+/* ====== Main CSS Start ====== */
+
+/* Universal CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: "Rubik", sans-serif !important;
+}
+:root {
+  --main-color: #f91943;
+  --main-black: #161616;
+  --light-black: #444;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  position: relative;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}

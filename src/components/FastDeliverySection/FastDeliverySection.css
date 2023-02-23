@@ -1,0 +1,36 @@
+/* fast Delivery CSS */
+.fast-delivery-section {
+  padding: 8em 0;
+}
+.fast-delivery-left {
+  display: flex;
+  align-items: center;
+}
+.fast-delivery-left .content h2 {
+  line-height: 100%;
+  font-size: 7.2rem;
+  letter-spacing: -0.3rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+.fast-delivery-left .content p {
+  font-size: 1.6rem;
+}
+.fast-delivery-left .main-btn {
+  font-size: 1.6rem;
+  margin: 2rem 0;
+}
+.fast-delivery-right {
+  position: relative;
+  padding-bottom: 50%;
+}
+.fast-delivery-right img {
+  position: absolute;
+  width: 140%;
+  height: 130%;
+  max-width: 140%;
+  object-fit: cover;
+  top: 0;
+  right: 0;
+  z-index: -1;
+}

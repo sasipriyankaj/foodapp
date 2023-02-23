@@ -1,0 +1,32 @@
+/* Footer CSS */
+.footer {
+  margin-top: 10rem;
+}
+.footer-img {
+  display: flex;
+  align-items: center;
+}
+.footer-img img {
+  max-width: 12em;
+}
+.social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.social-icons a {
+  margin-right: 1rem;
+}
+.social-icons svg {
+  font-size: 2.8rem;
+  color: var(--main-color);
+}
+.footer-copyright {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.footer-copyright p {
+  font-size: 1.7rem;
+  color: var(--light-black);
+}

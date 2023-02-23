@@ -1,0 +1,54 @@
+/* Banner css */
+.banner {
+  padding: 10em 0;
+}
+.banner-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 2rem;
+}
+.banner h2 {
+  line-height: 100%;
+  font-size: 7.5rem;
+  letter-spacing: -0.3rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: var(--main-black);
+}
+.banner p {
+  font-size: 1.7rem;
+  margin-bottom: 1.5rem;
+}
+.banner .main-btn {
+  font-size: 1.6rem;
+}
+.banner-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+.banner-right-content {
+  padding-bottom: 110%;
+}
+.banner-right-content .img1 {
+  position: absolute;
+  top: 18%;
+  left: -5%;
+  width: 60%;
+}
+.banner-right-content .img2 {
+  position: absolute;
+  top: -2%;
+  right: -5%;
+  width: 60%;
+}
+.banner-right-content .img3 {
+  position: absolute;
+  bottom: -3%;
+  right: 0%;
+  width: 60%;
+}

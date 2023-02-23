@@ -1,0 +1,97 @@
+/* About Info CSS */
+.about-info {
+  padding: 10em 0;
+}
+.about-info-left {
+  position: relative;
+  padding-bottom: 65%;
+  width: 100%;
+}
+.about-info-left-content {
+  position: absolute;
+  overflow: hidden;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  box-shadow: 0 6px 8px -6px rgba(0, 0, 0, 0.1);
+}
+.about-info-left-content .main-img {
+  width: 100%;
+  height: 100%;
+  animation: zoom 30s infinite ease-in-out;
+}
+@keyframes zoom {
+  0% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+  }
+}
+.about-info-left-content .experience {
+  background-color: #fff;
+  position: absolute;
+  z-index: 3;
+  bottom: 0;
+  right: 0;
+  width: 35%;
+  padding: 3em;
+  box-shadow: 6px 6px 8px -6px rgba(0, 0, 0, 0.1);
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+.about-info-left-content .experience h2 {
+  line-height: 100%;
+  font-size: 7.2rem;
+  letter-spacing: -0.3rem;
+  font-weight: 500;
+  color: var(--main-color);
+}
+.about-info-left-content .experience p {
+  line-height: 120%;
+  font-size: 2.2rem;
+  letter-spacing: -0.1rem;
+  margin: 1rem 0;
+  font-weight: 600;
+}
+.about-info-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.about-info-right-content {
+  padding: 0 3em;
+}
+.about-info-right h2 {
+  line-height: 110%;
+  font-size: 5.4rem;
+  letter-spacing: -0.2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+.about-info-right p {
+  font-size: 1.7rem;
+  margin: 1.6rem 0;
+}
+.about-info-right .signature {
+  font-size: 5.8rem;
+  margin: 3rem 0;
+}

@@ -1,0 +1,18 @@
+/* About Features CSS */
+.feature-left .number-cursive {
+  font-size: 4.2rem;
+  color: var(--main-color);
+}
+.feature-right {
+  padding: 0 1em;
+}
+.feature-right h2 {
+  line-height: 120%;
+  font-size: 2.5rem;
+  letter-spacing: -0.1rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+.feature-right p {
+  font-size: 1.5rem;
+}
