@@ -73,6 +73,14 @@ const Navbar = () => {
                 >
                   Our Menu
                 </NavLink>
+                <NavLink
+                  to="/login"
+                  activeStyle={{
+                    color: "#f91943",
+                  }}
+                >
+                  Login
+                </NavLink>
               </Box>
             )}
 

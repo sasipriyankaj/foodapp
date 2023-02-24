@@ -140,7 +140,7 @@ const menu: MenuType[] = [
     category: "lunch",
     price: 8.99,
     img: lunch4,
-    desc: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's, `,
+    desc: `Experience the flavors of India with our delicious lunch offering of fragrant vegetable curry, fluffy luchi bread, aromatic rice, and fresh vegetable salad, providing a satisfying and wholesome meal.`,
   },
   {
     id: 14,
@@ -148,7 +148,7 @@ const menu: MenuType[] = [
     category: "lunch",
     price: 15.99,
     img: lunch5,
-    desc: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's, `,
+    desc: `A hearty and flavorful dish that features a tender and juicy chicken breast, grilled or pan-seared to perfection, served with a variety of sides such as vegetables, potatoes, or rice, creating a delicious and satisfying meal`,
   },
   {
     id: 15,
@@ -156,7 +156,7 @@ const menu: MenuType[] = [
     category: "lunch",
     price: 15.99,
     img: lunch6,
-    desc: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's, `,
+    desc: `"Honey Glazed Salmon" is a delicious and healthy dish that features tender and flaky salmon fillets coated in a sweet and savory honey glaze, creating a mouthwatering flavor profile that pairs well with a variety of side dishes. `,
   },
   {
     id: 16,
@@ -164,7 +164,7 @@ const menu: MenuType[] = [
     category: "dinner",
     price: 10.99,
     img: dinner4,
-    desc: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's, `,
+    desc: `It is a classic comfort food dish that features crispy and golden fries topped with melted cheese, creating a satisfying and indulgent snack or side dish. `,
   },
   {
     id: 17,
@@ -172,7 +172,7 @@ const menu: MenuType[] = [
     category: "dinner",
     price: 18.99,
     img: dinner5,
-    desc: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's, `,
+    desc: ` A flavorful and aromatic dish that features succulent salmon fillets cooked with a buttery garlic sauce and served alongside toasted bread, creating a satisfying and delicious meal. `,
   },
   {
     id: 18,
@@ -180,15 +180,15 @@ const menu: MenuType[] = [
     category: "dinner",
     price: 23.99,
     img: dinner6,
-    desc: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's, `,
+    desc: `A simple and classic dish that involves seasoning chicken and cooking it in the oven until it's tender, juicy, and golden-brown on the outside, resulting in a delicious and versatile meal that pairs well with a variety of side dishes.`,
   },
   {
     id: 19,
     title: "Trafinol Salad",
     category: "breakfast",
-    price: 11.99,
+    price: 7.99,
     img: breakfast7,
-    desc: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's, `,
+    desc: `A healthy and colorful salad made with fresh lettuce, sliced tomatoes, grated carrots, and a variety of nutritious toppings, providing a tasty and wholesome meal.`,
   },
   {
     id: 20,
@@ -196,7 +196,7 @@ const menu: MenuType[] = [
     category: "breakfast",
     price: 8.99,
     img: breakfast8,
-    desc: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's, `,
+    desc: `It is a beloved and versatile dish that typically involves cooking pasta noodles with a flavorful sauce made from ingredients such as tomatoes, garlic, and herbs, resulting in a delicious and satisfying meal that can be customized with a variety of meats, vegetables, and cheeses.`,
   },
   {
     id: 21,
@@ -204,7 +204,7 @@ const menu: MenuType[] = [
     category: "breakfast",
     price: 18.99,
     img: breakfast9,
-    desc: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's, `,
+    desc: `A flavorful and cheesy dish that features a delicious blend of tomatoes, garlic, onion, and spices, creating a savory and aromatic flavor profile that pairs well with a variety of side dishes. `,
   },
   {
     id: 22,
@@ -212,7 +212,7 @@ const menu: MenuType[] = [
     category: "lunch",
     price: 13.99,
     img: lunch7,
-    desc: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's, `,
+    desc: `"Mushroom salad" is a nutritious and flavorful dish that typically involves mixing fresh mushrooms with a variety of greens, vegetables, and dressings, creating a satisfying and wholesome meal that is both delicious and healthy. `,
   },
   {
     id: 23,
@@ -220,15 +220,15 @@ const menu: MenuType[] = [
     category: "lunch",
     price: 21.99,
     img: lunch8,
-    desc: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's, `,
+    desc: `A mixed salad that typically includes both vegetarian and non-vegetarian ingredients such as fresh greens, vegetables, nuts, eggs, and meats, creating a delicious and satisfying meal that caters to a wide range of dietary preferences.`,
   },
   {
     id: 24,
-    title: "mozzarella Pasta",
+    title: "Mozzarella Pasta",
     category: "lunch",
     price: 21.99,
     img: lunch9,
-    desc: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's, `,
+    desc: `"Mozzarella pasta" is a popular Italian dish that typically features pasta noodles coated in a creamy tomato-based sauce and topped with melted mozzarella cheese, resulting in a rich and satisfying meal that is both comforting and delicious.`,
   },
   {
     id: 25,
@@ -236,7 +236,7 @@ const menu: MenuType[] = [
     category: "dinner",
     price: 9.99,
     img: dinner7,
-    desc: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's, `,
+    desc: `A nourishing and flavorful dish that typically includes a savory broth made from ingredients such as meat, seafood, vegetables, and spices, creating a comforting and satisfying meal that is often enjoyed as a starter or main course in Chinese cuisine.`,
   },
   {
     id: 26,
@@ -244,7 +244,7 @@ const menu: MenuType[] = [
     category: "dinner",
     price: 13.99,
     img: dinner8,
-    desc: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's, `,
+    desc: `"Japanese sushi" is a popular dish made with specially seasoned rice and a variety of fresh seafood, vegetables, and other ingredients, often rolled into bite-sized pieces or served as individual portions, resulting in a flavorful and colorful culinary experience that is enjoyed worldwide.`,
   },
   {
     id: 27,
@@ -252,7 +252,7 @@ const menu: MenuType[] = [
     category: "dinner",
     price: 19.99,
     img: dinner9,
-    desc: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's, `,
+    desc: `A simple yet delicious dish consisting of fresh greens, vegetables, and other toppings served alongside warm, freshly baked bread, offering a satisfying and balanced meal that is easy to prepare and enjoy. `,
   },
 ];
 
