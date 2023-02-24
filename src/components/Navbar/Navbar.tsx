@@ -30,7 +30,7 @@ const Navbar = () => {
   // store useStyles function in the variable classes
   const classes = useStyles();
   return (
-    <AppBar position="static" color="transparent">
+    <AppBar position="fixed" className="navbar">
       <Toolbar disableGutters>
         <Container
           sx={{

@@ -1,22 +1,26 @@
 /* Login CSS */
 .login-section {
-  padding: 10em 0 8em;
+  padding: 18em 0 10em;
+  background-image: url("../../assets/images/food_illustration_background.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: bottom;
 }
 .login-left-content {
   background: rgba(255, 255, 255, 0.25);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 .login-left-content {
-  padding: 3em;
+  padding: 3.5em;
 }
 .login-left-content h2 {
   font-size: 4.8rem;
   font-weight: 500;
-  color: var(--light-black);
+  color: var(--main-color);
   margin-bottom: 1rem;
 }
 .login-left-content p {
@@ -29,7 +33,7 @@ form .MuiFormControl-root {
   margin: 2em 0;
 }
 form .MuiFormLabel-root {
-  font-size: 1.9rem;
+  font-size: 2rem;
   font-weight: 600;
   color: var(--main-black);
 }
@@ -49,6 +53,7 @@ form .MuiInputBase-input {
 
 form .MuiInputAdornment-root svg.MuiSvgIcon-root {
   font-size: 3em;
+  color: var(--main-color);
 }
 form .main-btn {
   font-size: 1.6rem;
@@ -66,6 +71,7 @@ form .main-btn {
   font-weight: 600;
   font-size: 1.7rem;
 }
+
 .login-with-social-media {
   margin-top: 2.2rem;
 }
@@ -85,6 +91,12 @@ form .main-btn {
 .login-with-social-media button:hover {
   color: #fff;
   background-color: var(--main-color);
+}
+.login-with-social-media button span {
+  margin-right: 1rem;
+}
+.login-with-social-media button span img {
+  width: 2em;
 }
 .login-right-content {
   height: 100%;

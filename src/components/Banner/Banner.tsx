@@ -20,8 +20,8 @@ const Banner = () => {
               </Typography>
               <Typography variant="body1">
                 Get ready for an extraordinary culinary adventure with Mr.
-                Chef's artisanal approach to cooking. From classic favorites to
-                daring new flavors, our delectable cuisine is guaranteed to
+                Chef's artisanal approach to cooking. From classic favourites to
+                daring new flavours, our delectable cuisine is guaranteed to
                 tantalize your taste buds and leave you craving more.
               </Typography>
               <Button

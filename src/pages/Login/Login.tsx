@@ -9,6 +9,8 @@ import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from "@mui/icons-material/Lock";
 import loginImage from "../../assets/images/login.jpg";
 import NavLink from "../../components/NavLink/NavLink";
+import facebookIcon from "../../assets/images/icons/facebook.svg";
+import googleIcon from "../../assets/images/icons/google.svg";
 
 const Login = () => {
   return (
@@ -25,9 +27,11 @@ const Login = () => {
                 {/* Email */}
                 <TextField
                   label="Email"
+                  placeholder="Email Address"
                   variant="standard"
                   type="email"
                   fullWidth
+                  required
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
@@ -39,9 +43,11 @@ const Login = () => {
                 {/* Password */}
                 <TextField
                   label="Password"
+                  placeholder="Password"
                   variant="standard"
                   type="password"
                   fullWidth
+                  required
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
@@ -63,14 +69,20 @@ const Login = () => {
               </form>
               {/*  Sign Up/ Do Registration Text*/}
               <Typography variant="h4">
-                Already have an account?{" "}
-                <NavLink to="/signup"> Sign Up </NavLink>
+                Don't have an account?{" "}
+                <NavLink to="/register"> Register Now </NavLink>
               </Typography>
               <div className="login-with-social-media">
                 <Button variant="contained" type="submit" fullWidth>
+                  <span>
+                    <img src={googleIcon} alt="google-icon" />{" "}
+                  </span>
                   Login with Google
                 </Button>
                 <Button variant="contained" type="submit" fullWidth>
+                  <span>
+                    <img src={facebookIcon} alt="facebook-icon" />
+                  </span>
                   Login with Facebook
                 </Button>
               </div>
