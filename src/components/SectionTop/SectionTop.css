@@ -1,0 +1,23 @@
+/* Section Top CSS */
+.section-top {
+  padding: 18em 0;
+  background-image: url("../../assets/images/food_illustration_background.png");
+  margin-top: 8em;
+  text-align: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
+}
+.section-top h2 {
+  font-size: 5rem;
+  font-weight: 600;
+}
+.section-top p {
+  margin-top: 2rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+.section-top .home-text-link {
+  color: var(--main-color);
+}

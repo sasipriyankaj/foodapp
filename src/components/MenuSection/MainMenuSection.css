@@ -1,6 +1,6 @@
 /* Menu Section CSS */
 .menu-section {
-  padding: 18em 0 10em;
+  padding: 10em 0;
 }
 .menu-section-top {
   text-align: center;
@@ -14,7 +14,7 @@
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 4em;
+  margin-bottom: 8em;
 }
 .category-button-group button {
   font-size: 1.4rem;
