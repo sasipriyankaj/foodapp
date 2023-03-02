@@ -6,28 +6,32 @@
   background-repeat: no-repeat;
   background-position: bottom;
 }
-.register-content{
+.register-logo {
+  width: 30%;
+  margin: 0 auto;
+}
+.register-content {
   max-width: 60%;
   margin: 0 auto;
   padding: 3.5em;
-  background: rgba( 255, 255, 255, 0.25 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 4px );
-  -webkit-backdrop-filter: blur( 4px );
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
-.register-content h2{
+.register-content h2 {
   font-size: 4.8rem;
-    font-weight: 500;
-    color: var(--main-color);
-    margin: 1.5rem 0 1rem;
+  font-weight: 500;
+  color: var(--main-color);
+  margin: 1.5rem 0 1rem;
 }
-.register-content p{
+.register-content p {
   font-size: 1.6rem;
 }
-.register-content .main-btn{
+.register-content .main-btn {
   margin-top: 2rem;
   padding: 0.8em;
-  font-size: 1.7rem
+  font-size: 1.7rem;
 }

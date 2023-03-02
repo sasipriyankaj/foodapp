@@ -9,6 +9,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import logo from "../../assets/images/logo.png";
 
 const Register = () => {
   // important states
@@ -33,7 +34,10 @@ const Register = () => {
     <section className="register-section">
       <Container>
         <div className="register-content">
-          <Typography variant="h2">Register Now!</Typography>
+          <img src={logo} alt="logo" className="register-logo" />
+          <Typography variant="h2" sx={{ textAlign: "center" }}>
+            Register Now!!
+          </Typography>
           <Typography variant="body1">
             Join our community of food lovers and start enjoying exclusive
             benefits today!
