@@ -14,10 +14,15 @@
     "@mui/icons-material": "^5.11.9",
     "@mui/material": "^5.11.9",
     "@mui/styles": "^5.11.9",
+    "@reduxjs/toolkit": "^1.9.3",
     "firebase": "^9.17.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^8.0.5",
     "react-router-dom": "^6.8.1",
+    "redux-logger": "^3.0.6",
+    "redux-persist": "^6.0.0",
+    "sweetalert2": "^11.7.3",
     "swiper": "^9.0.5"
   },
   "devDependencies": {

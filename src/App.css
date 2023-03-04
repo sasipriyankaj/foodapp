@@ -51,3 +51,18 @@ img {
     -o-transform: scale(1);
   }
 }
+
+/* Sweet Alert css */
+.swal2-title {
+  font-size: 3rem !important;
+}
+.swal2-html-container {
+  font-size: 2rem !important;
+}
+.swal2-styled.swal2-confirm {
+  background-color: var(--main-color) !important;
+  font-size: 1.8rem !important;
+}
+.swal2-container.swal2-center > .swal2-popup {
+  width: 50%;
+}

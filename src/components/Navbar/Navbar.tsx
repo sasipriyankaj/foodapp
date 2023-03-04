@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, MouseEvent } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Container from "@mui/material/Container";
@@ -10,6 +10,20 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import NavLink from "../NavLink/NavLink";
 import "./Navbar.css";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/store/store";
+import { Button } from "@mui/material";
+import firebaseAuth from "../../firebase/firebaseAuth";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import Avatar from "@mui/material/Avatar";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import Divider from "@mui/material/Divider";
+import PersonAdd from "@mui/icons-material/PersonAdd";
+import Settings from "@mui/icons-material/Settings";
+import Logout from "@mui/icons-material/Logout";
+import Typography from "@mui/material/Typography";
+import Tooltip from "@mui/material/Tooltip";
 
 // Drawer Styles
 const useStyles = makeStyles({
@@ -20,8 +34,22 @@ const useStyles = makeStyles({
 
 const Navbar = () => {
   // Important State Declare
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const matches = useMediaQuery("(max-width:900px)");
+
+  // user avatar important states
+  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  // get user from store
+  const { user } = useSelector((state: RootState) => state.user);
+  const { logOut } = firebaseAuth();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -73,14 +101,111 @@ const Navbar = () => {
                 >
                   Our Menu
                 </NavLink>
-                <NavLink
-                  to="/login"
-                  activeStyle={{
-                    color: "#f91943",
-                  }}
-                >
-                  Login
-                </NavLink>
+
+                {/* if user exist, the user information will show in this menu avatar */}
+                {user.email && (
+                  <>
+                    <Box sx={{ mr: 2 }}>
+                      <Tooltip title="Account settings">
+                        <IconButton
+                          onClick={handleClick}
+                          size="small"
+                          sx={{ ml: 2 }}
+                          aria-controls={open ? "account-menu" : undefined}
+                          aria-haspopup="true"
+                          aria-expanded={open ? "true" : undefined}
+                        >
+                          <Avatar
+                            sx={{
+                              width: 35,
+                              height: 35,
+                              background: "#f91943",
+                            }}
+                          >
+                            {user.displayName.slice(0, 1)}
+                          </Avatar>
+                        </IconButton>
+                      </Tooltip>
+                    </Box>
+                    <Menu
+                      anchorEl={anchorEl}
+                      id="account-menu"
+                      open={open}
+                      onClose={handleClose}
+                      onClick={handleClose}
+                      PaperProps={{
+                        elevation: 0,
+                        sx: {
+                          overflow: "visible",
+                          filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+                          mt: 1.5,
+                          "& .MuiAvatar-root": {
+                            width: 32,
+                            height: 32,
+                            ml: -0.5,
+                            mr: 1,
+                          },
+                          "&:before": {
+                            content: '""',
+                            display: "block",
+                            position: "absolute",
+                            top: 0,
+                            right: 14,
+                            width: 10,
+                            height: 10,
+                            bgcolor: "background.paper",
+                            transform: "translateY(-50%) rotate(45deg)",
+                            zIndex: 0,
+                          },
+                        },
+                      }}
+                      transformOrigin={{ horizontal: "right", vertical: "top" }}
+                      anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+                    >
+                      <MenuItem onClick={handleClose}>
+                        <Avatar /> Profile
+                      </MenuItem>
+                      <MenuItem onClick={handleClose}>
+                        <Avatar /> My account
+                      </MenuItem>
+                      <Divider />
+                      <MenuItem onClick={handleClose}>
+                        <ListItemIcon>
+                          <PersonAdd fontSize="small" />
+                        </ListItemIcon>
+                        Add another account
+                      </MenuItem>
+                      <MenuItem onClick={handleClose}>
+                        <ListItemIcon>
+                          <Settings fontSize="small" />
+                        </ListItemIcon>
+                        Settings
+                      </MenuItem>
+                      <MenuItem onClick={handleClose}>
+                        <ListItemIcon>
+                          <Logout fontSize="small" />
+                        </ListItemIcon>
+                        Logout
+                      </MenuItem>
+                    </Menu>
+                  </>
+                )}
+
+                {/* if there is user show log Out Button else Log In button */}
+                {user.email ? (
+                  <Button className="main-btn nav-btn" onClick={logOut}>
+                    Log out
+                  </Button>
+                ) : (
+                  <NavLink
+                    to="/login"
+                    activeStyle={{
+                      color: "#f91943",
+                    }}
+                  >
+                    Login
+                  </NavLink>
+                )}
               </Box>
             )}
 

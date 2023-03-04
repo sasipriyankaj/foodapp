@@ -1,4 +1,4 @@
-import { useState, useRef, ChangeEvent } from "react";
+import { useState, useRef, ChangeEvent, FormEvent } from "react";
 import "./Register.css";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
@@ -7,27 +7,46 @@ import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from "@mui/icons-material/Lock";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import logo from "../../assets/images/logo.png";
+import firebaseAuth from "../../firebase/firebaseAuth";
+// ES6 Modules or TypeScript
+import Swal from "sweetalert2";
 
 const Register = () => {
   // important states
-  const [image, setImage] = useState<string | null>(null);
-  const fileInputRef = useRef<HTMLInputElement>(null);
+  const [newUserData, setNewUserData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+  const { registerUser } = firebaseAuth();
 
-  // image upload function
-  const handleImageUpload = (event: ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files && event.target.files[0];
+  // Handle input change function
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setNewUserData({ ...newUserData, [event.target.name]: event.target.value });
+  };
 
-    if (!file || !file.type.startsWith("image/")) {
-      alert("Please upload an image file.");
-      setImage(null);
-      fileInputRef.current && (fileInputRef.current.value = "");
+  // Register Submit functionality
+  const handleRegisterSubmit = (event: FormEvent<HTMLFormElement>) => {
+    // stop reloading the website
+    event.preventDefault();
+
+    // checking password length
+    if (newUserData.password.length < 6) {
+      Swal.fire({
+        icon: "error",
+        title: "Something Wrong!",
+        text: "Password length must be at least six characters.",
+      });
       return;
     }
 
-    setImage(file && URL.createObjectURL(file));
+    // send the data to the firebase and create a new user
+    registerUser(newUserData.name, newUserData.email, newUserData.password);
+
+    // clear the input form
+    setNewUserData({ name: "", email: "", password: "" });
   };
 
   return (
@@ -44,11 +63,14 @@ const Register = () => {
           </Typography>
 
           {/* Register Form */}
-          <form>
+          <form onSubmit={handleRegisterSubmit}>
             {/* Name */}
             <TextField
               label="Name"
               variant="standard"
+              value={newUserData.name}
+              onChange={handleChange}
+              name="name"
               type="text"
               fullWidth
               required
@@ -65,6 +87,9 @@ const Register = () => {
               label="Email"
               variant="standard"
               type="email"
+              value={newUserData.email}
+              onChange={handleChange}
+              name="email"
               fullWidth
               required
               InputProps={{
@@ -80,6 +105,9 @@ const Register = () => {
               label="Password"
               variant="standard"
               type="password"
+              value={newUserData.password}
+              onChange={handleChange}
+              name="password"
               fullWidth
               required
               InputProps={{
@@ -90,25 +118,6 @@ const Register = () => {
                 ),
               }}
             />
-
-            {/* image */}
-            <TextField
-              label="Upload Image"
-              variant="standard"
-              type="file"
-              fullWidth
-              required
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <AddAPhotoIcon />
-                  </InputAdornment>
-                ),
-              }}
-              onChange={handleImageUpload}
-              inputRef={fileInputRef}
-            />
-            {image && <img src={image} alt="Preview" className="preview-img" />}
 
             {/* Submit Form Button */}
             <Button
