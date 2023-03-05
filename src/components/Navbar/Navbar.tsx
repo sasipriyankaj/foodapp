@@ -105,8 +105,8 @@ const Navbar = () => {
                 {/* if user exist, the user information will show in this menu avatar */}
                 {user.email && (
                   <>
-                    <Box sx={{ mr: 2 }}>
-                      <Tooltip title="Account settings">
+                    <Box>
+                      <Tooltip title="Account Information">
                         <IconButton
                           onClick={handleClick}
                           size="small"
@@ -117,12 +117,15 @@ const Navbar = () => {
                         >
                           <Avatar
                             sx={{
-                              width: 35,
-                              height: 35,
+                              width: 38,
+                              height: 38,
                               background: "#f91943",
+                              fontWeight: "700",
+                              textTransform: "uppercase",
+                              fontSize: "1.6rem",
                             }}
                           >
-                            {user.displayName.slice(0, 1)}
+                            {user.displayName && user.displayName.slice(0, 1)}
                           </Avatar>
                         </IconButton>
                       </Tooltip>
@@ -182,21 +185,19 @@ const Navbar = () => {
                         Settings
                       </MenuItem>
                       <MenuItem onClick={handleClose}>
-                        <ListItemIcon>
-                          <Logout fontSize="small" />
-                        </ListItemIcon>
-                        Logout
+                        <span className="log-out" onClick={logOut}>
+                          <ListItemIcon>
+                            <Logout fontSize="small" />
+                          </ListItemIcon>
+                          Logout
+                        </span>
                       </MenuItem>
                     </Menu>
                   </>
                 )}
 
-                {/* if there is user show log Out Button else Log In button */}
-                {user.email ? (
-                  <Button className="main-btn nav-btn" onClick={logOut}>
-                    Log out
-                  </Button>
-                ) : (
+                {/* if there is no user show log in Button */}
+                {!user.email && (
                   <NavLink
                     to="/login"
                     activeStyle={{

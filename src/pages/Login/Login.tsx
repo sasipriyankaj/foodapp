@@ -1,4 +1,5 @@
 import Grid from "@mui/material/Grid";
+import { useState, ChangeEvent, FormEvent } from "react";
 import "./Login.css";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
@@ -11,8 +12,53 @@ import loginImage from "../../assets/images/login.jpg";
 import NavLink from "../../components/NavLink/NavLink";
 import facebookIcon from "../../assets/images/icons/facebook.svg";
 import googleIcon from "../../assets/images/icons/google.svg";
+import firebaseAuth from "../../firebase/firebaseAuth";
+// ES6 Modules or TypeScript
+import Swal from "sweetalert2";
 
 const Login = () => {
+  // important states
+  const [userLoginData, setUserLoginData] = useState({
+    email: "",
+    password: "",
+  });
+  const { logInUser } = firebaseAuth();
+
+  // handle change functionality
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    event.preventDefault();
+
+    // set the data to the userLoginData state
+    setUserLoginData({
+      ...userLoginData,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  //User Login functionality
+  const handleLoginSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    // checking password length
+    if (userLoginData.password.length < 6) {
+      Swal.fire({
+        icon: "error",
+        title: "Something Wrong!",
+        text: "Password length must be at least six characters.",
+      });
+      return;
+    }
+
+    // send data to firebase and start the login process
+    logInUser(userLoginData.email, userLoginData.password);
+
+    // clear the form
+    setUserLoginData({
+      email: "",
+      password: "",
+    });
+  };
+
   return (
     <section className="login-section">
       <Container>
@@ -23,13 +69,16 @@ const Login = () => {
               <Typography variant="body1">
                 Experience our delicious food by logging in now!
               </Typography>
-              <form>
+              <form onSubmit={handleLoginSubmit}>
                 {/* Email */}
                 <TextField
                   label="Email"
                   placeholder="Email Address"
                   variant="standard"
                   type="email"
+                  name="email"
+                  onChange={handleChange}
+                  value={userLoginData.email}
                   fullWidth
                   required
                   InputProps={{
@@ -46,6 +95,9 @@ const Login = () => {
                   placeholder="Password"
                   variant="standard"
                   type="password"
+                  name="password"
+                  onChange={handleChange}
+                  value={userLoginData.password}
                   fullWidth
                   required
                   InputProps={{

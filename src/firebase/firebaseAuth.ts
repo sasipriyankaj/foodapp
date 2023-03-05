@@ -75,6 +75,12 @@ const firebaseAuth = () => {
       .catch((error) => {
         const errorMessage = error.message;
         dispatch(errorUser());
+        // show the error message
+        Swal.fire({
+          icon: "error",
+          title: "Something Wrong!",
+          text: errorMessage,
+        });
       });
   };
 
@@ -84,10 +90,29 @@ const firebaseAuth = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
+
+        // show the successs message
+        Swal.fire({
+          icon: "success",
+          title: "Login Successful",
+          text: "You successfully Logged in our Website!",
+        });
       })
       .catch((error) => {
+        let errorMessage = error.message;
         const errorCode = error.code;
-        const errorMessage = error.message;
+
+        // if user not found show this message
+        if (errorCode === "auth/user-not-found") {
+          errorMessage = "User Not Found!";
+        }
+
+        // show the error message
+        Swal.fire({
+          icon: "error",
+          title: "Something Wrong!",
+          text: errorMessage,
+        });
       });
   };
 

@@ -9,7 +9,6 @@
 .right_menu {
   display: flex;
   align-items: center;
-  justify-content: space-around;
 }
 .right_menu a {
   display: inline-block;
@@ -18,8 +17,19 @@
   font-weight: 600;
   color: var(--main-black);
 }
-.main-btn.nav-btn {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #fff;
+.log-out {
+  width: 100%;
+}
+div#\:r0\: {
+  transform: translate(1115px, 472px);
+}
+.MuiTooltip-tooltip.MuiTooltip-tooltipPlacementBottom.css-ja5taz-MuiTooltip-tooltip {
+  font-size: 1.2rem;
+}
+li.MuiButtonBase-root {
+  font-size: 1.4rem;
+}
+.right_menu
+  button.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeSmall {
+  margin-left: 0;
 }
