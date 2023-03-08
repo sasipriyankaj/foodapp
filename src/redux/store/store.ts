@@ -1,5 +1,6 @@
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import userReducer from "../features/userSlice";
+import menuReducer from "../features/menuSlice";
 import { combineReducers } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
@@ -14,6 +15,7 @@ const persistConfig = {
 // combine all the reducers
 const reducers = combineReducers({
   user: userReducer,
+  menu: menuReducer,
 });
 
 // persisted Reducer

@@ -12,7 +12,6 @@ import NavLink from "../NavLink/NavLink";
 import "./Navbar.css";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store/store";
-import { Button } from "@mui/material";
 import firebaseAuth from "../../firebase/firebaseAuth";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -22,7 +21,6 @@ import Divider from "@mui/material/Divider";
 import PersonAdd from "@mui/icons-material/PersonAdd";
 import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
-import Typography from "@mui/material/Typography";
 import Tooltip from "@mui/material/Tooltip";
 
 // Drawer Styles
@@ -115,18 +113,31 @@ const Navbar = () => {
                           aria-haspopup="true"
                           aria-expanded={open ? "true" : undefined}
                         >
-                          <Avatar
-                            sx={{
-                              width: 38,
-                              height: 38,
-                              background: "#f91943",
-                              fontWeight: "700",
-                              textTransform: "uppercase",
-                              fontSize: "1.6rem",
-                            }}
-                          >
-                            {user.displayName && user.displayName.slice(0, 1)}
-                          </Avatar>
+                          {user.photoURL ? (
+                            <Avatar
+                              sx={{
+                                width: 38,
+                                height: 38,
+                              }}
+                              src={user.photoURL}
+                              alt="user-image"
+                            >
+                              {user.displayName && user.displayName.slice(0, 1)}
+                            </Avatar>
+                          ) : (
+                            <Avatar
+                              sx={{
+                                width: 38,
+                                height: 38,
+                                background: "#f91943",
+                                fontWeight: "700",
+                                textTransform: "uppercase",
+                                fontSize: "1.6rem",
+                              }}
+                            >
+                              {user.displayName && user.displayName.slice(0, 1)}
+                            </Avatar>
+                          )}
                         </IconButton>
                       </Tooltip>
                     </Box>

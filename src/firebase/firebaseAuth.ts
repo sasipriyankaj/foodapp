@@ -6,20 +6,26 @@ import {
   onAuthStateChanged,
   signOut,
   updateProfile,
+  GoogleAuthProvider,
+  FacebookAuthProvider,
+  signInWithPopup,
 } from "firebase/auth";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { errorUser, getUser, loadingUser } from "../redux/features/userSlice";
+
 // ES6 Modules or TypeScript
 import Swal from "sweetalert2";
 
-// Initailize the firebase application
-const app = firebaseInitialize();
-
 // Initialize Firebase Authentication and get a reference to the service
+const app = firebaseInitialize();
 const auth = getAuth(app);
 
 const firebaseAuth = () => {
+  // google provider
+  const googleProvider = new GoogleAuthProvider();
+  const facebookProvider = new FacebookAuthProvider();
+
   // redux dispatch
   const dispatch = useDispatch();
 
@@ -63,8 +69,8 @@ const firebaseAuth = () => {
               // show the successs message
               Swal.fire({
                 icon: "success",
-                title: "Registered Successfully",
-                text: "You successfully registered in our Website!",
+                title: "Registered successfully",
+                text: "You have successfully registered in our Website!",
               });
             })
             .catch((error) => {
@@ -75,6 +81,7 @@ const firebaseAuth = () => {
       .catch((error) => {
         const errorMessage = error.message;
         dispatch(errorUser());
+
         // show the error message
         Swal.fire({
           icon: "error",
@@ -116,6 +123,54 @@ const firebaseAuth = () => {
       });
   };
 
+  // google login
+  const googleLogin = () => {
+    signInWithPopup(auth, googleProvider)
+      .then((result) => {
+        // The signed-in user info.
+        const { displayName, email, photoURL } = result.user;
+
+        // send the user data to the store
+        dispatch(getUser({ displayName, email, photoURL }));
+
+        // show the successs message
+        Swal.fire({
+          icon: "success",
+          title: "Successfully logged In!",
+          text: "You have successfully logged in our Website!",
+        });
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        const errorMessage = error.message;
+
+        // show the error message
+        Swal.fire({
+          icon: "error",
+          title: "Something Wrong!",
+          text: errorMessage,
+        });
+      });
+  };
+
+  // facebook login
+  const facebookLogin = () => {
+    signInWithPopup(auth, facebookProvider)
+      .then((result) => {
+        // The signed-in user info.
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        console.log(errorMessage);
+      });
+  };
+
   // log Out user
   const logOut = (): void => {
     signOut(auth)
@@ -125,16 +180,16 @@ const firebaseAuth = () => {
         // show the successsfully logout message
         Swal.fire({
           icon: "success",
-          title: "Successfully Logout",
+          title: "Successfully logout",
           text: "Hopefully we will see you again!",
         });
       })
       .catch((error) => {
-        // An error happened.
+        console.log(error);
       });
   };
 
-  return { registerUser, logOut, logInUser };
+  return { registerUser, logOut, logInUser, googleLogin, facebookLogin };
 };
 
 export default firebaseAuth;

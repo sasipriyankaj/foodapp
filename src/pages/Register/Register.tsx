@@ -10,6 +10,8 @@ import Button from "@mui/material/Button";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import logo from "../../assets/images/logo.png";
 import firebaseAuth from "../../firebase/firebaseAuth";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/store/store";
 // ES6 Modules or TypeScript
 import Swal from "sweetalert2";
 
@@ -20,7 +22,12 @@ const Register = () => {
     email: "",
     password: "",
   });
+
+  // get register User function from firebase auth
   const { registerUser } = firebaseAuth();
+
+  // get user from store
+  const { user } = useSelector((state: RootState) => state.user);
 
   // Handle input change function
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -125,6 +132,7 @@ const Register = () => {
               type="submit"
               className="main-btn"
               fullWidth
+              disabled={!!user.email}
             >
               Register
             </Button>

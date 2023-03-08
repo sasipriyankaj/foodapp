@@ -22,7 +22,7 @@ const Login = () => {
     email: "",
     password: "",
   });
-  const { logInUser } = firebaseAuth();
+  const { logInUser, googleLogin, facebookLogin } = firebaseAuth();
 
   // handle change functionality
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -125,17 +125,27 @@ const Login = () => {
                 <NavLink to="/register"> Register Now </NavLink>
               </Typography>
               <div className="login-with-social-media">
-                <Button variant="contained" type="submit" fullWidth>
+                <Button
+                  variant="contained"
+                  type="submit"
+                  fullWidth
+                  onClick={googleLogin}
+                >
                   <span>
                     <img src={googleIcon} alt="google-icon" />{" "}
                   </span>
-                  Login with Google
+                  Continue with Google
                 </Button>
-                <Button variant="contained" type="submit" fullWidth>
+                <Button
+                  variant="contained"
+                  type="submit"
+                  fullWidth
+                  onClick={facebookLogin}
+                >
                   <span>
                     <img src={facebookIcon} alt="facebook-icon" />
                   </span>
-                  Login with Facebook
+                  Continue with Facebook
                 </Button>
               </div>
             </div>
