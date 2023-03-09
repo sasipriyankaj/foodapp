@@ -29,7 +29,12 @@ div#\:r0\: {
 li.MuiButtonBase-root {
   font-size: 1.4rem;
 }
-.right_menu
-  button.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-sizeSmall {
-  margin-left: 0;
+
+svg.MuiSvgIcon-root.MuiSvgIcon-colorAction {
+  font-size: 2.2rem;
+}
+.MuiBadge-root .MuiBadge-badge.MuiBadge-standard {
+  font-size: 1rem;
+  background: var(--main-color);
+  color: #fff;
 }

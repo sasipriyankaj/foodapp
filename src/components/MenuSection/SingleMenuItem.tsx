@@ -1,5 +1,5 @@
+import { MouseEvent } from "react";
 import Grid from "@mui/material/Grid";
-import { MenuType } from "../../assets/data/MenuItem";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -7,6 +7,12 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import SendIcon from "@mui/icons-material/Send";
+import { MenuType } from "./MainMenuSection";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../redux/store/store";
+import { addToCart, CartItem } from "../../redux/features/menuSlice";
+// ES6 Modules or TypeScript
+import Swal from "sweetalert2";
 
 // single menu item props type
 type SingleMenuItemProps = {
@@ -14,6 +20,51 @@ type SingleMenuItemProps = {
 };
 
 const SingleMenuItem = ({ data }: SingleMenuItemProps) => {
+  const cart = useSelector((state: RootState) => state.menu.cart) as CartItem[];
+  const dispatch = useDispatch();
+
+  // add to Cart functionality
+  const addToCartFunc = (event: MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+
+    // check if the item is on the cart, add one quantity and if it is not on the cart, add a quantity property
+    if (cart.find((item) => item.id === data.id)) {
+      // item is on the cart
+      const addOneMoreItem = cart.map((item) => {
+        if (item.id === data.id) {
+          return { ...item, quantity: item.quantity + 1 };
+        }
+        return item;
+      });
+
+      // add to the store
+      dispatch(addToCart(addOneMoreItem));
+    } else {
+      // brand new item will be added where the quantity will be 1
+      const newItem = [
+        ...cart,
+        {
+          id: data.id,
+          title: data.title,
+          img: data.img,
+          price: data.price,
+          quantity: 1,
+        },
+      ];
+
+      // add to store
+      dispatch(addToCart(newItem));
+    }
+
+    // after successfully added to cart, show a success message
+    // show the successs message
+    Swal.fire({
+      icon: "success",
+      title: "Cart updated!",
+      text: `${data.title} is added successfully to the cart.`,
+    });
+  };
+
   return (
     <Grid item md={4}>
       <Card className="single-card neumorphic" sx={{ height: "100%" }}>
@@ -33,8 +84,9 @@ const SingleMenuItem = ({ data }: SingleMenuItemProps) => {
             size="large"
             endIcon={<SendIcon />}
             className="main-btn"
+            onClick={addToCartFunc}
           >
-            Order Now
+            Add to Cart
           </Button>
         </CardActions>
       </Card>

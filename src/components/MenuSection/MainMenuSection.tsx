@@ -1,30 +1,56 @@
 import "./MainMenuSection.css";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-import MenuData from "../../assets/data/MenuItem";
 import SingleMenuItem from "./SingleMenuItem";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CategoryItem from "./CategoryItem";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchMenu } from "../../redux/features/menuSlice";
+import type { AppDispatch, RootState } from "../../redux/store/store";
 
-// get all categories from the Menu Data
-const allCategories = [
-  "all",
-  ...new Set(MenuData.map((item) => item.category)),
-];
+// Interface type for menu
+export interface MenuType {
+  id: string;
+  title: string;
+  category: string;
+  price: number;
+  img: string;
+  desc: string;
+}
 
 const MainMenuSection = () => {
+  // get menu from the store
+  const menuData: MenuType[] = useSelector(
+    (state: RootState) => state.menu.menu
+  ) as MenuType[];
+
+  // get all categories from the Menu Data
+  const allCategories = [
+    "all",
+    ...new Set(menuData.map((item) => item.category)),
+  ];
+
   // important states
-  const [menuItems, setMenuItems] = useState(MenuData);
+  const [menuItems, setMenuItems] = useState(menuData);
   const [menuIndex, setMenuIndex] = useState(0);
+
+  // dispatch function
+  const dispatch: AppDispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchMenu());
+  }, [dispatch, fetchMenu]);
 
   // filter menu according to selecting the category items
   const filterItems = (category: string) => {
     if (category === "all") {
-      setMenuItems(MenuData);
+      setMenuItems(menuData);
       setMenuIndex(0);
       return;
     } else {
-      const newMenuItem = MenuData.filter((menu) => menu.category === category);
+      const newMenuItem = menuData.filter(
+        (menu) => menu?.category === category
+      );
       setMenuIndex(allCategories.indexOf(category));
       setMenuItems(newMenuItem);
     }

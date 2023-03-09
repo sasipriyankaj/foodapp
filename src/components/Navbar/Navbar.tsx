@@ -22,6 +22,8 @@ import PersonAdd from "@mui/icons-material/PersonAdd";
 import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
 import Tooltip from "@mui/material/Tooltip";
+import Badge from "@mui/material/Badge";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 // Drawer Styles
 const useStyles = makeStyles({
@@ -47,6 +49,7 @@ const Navbar = () => {
 
   // get user from store
   const { user } = useSelector((state: RootState) => state.user);
+  const cart = useSelector((state: RootState) => state.menu.cart);
   const { logOut } = firebaseAuth();
 
   const handleDrawerToggle = () => {
@@ -98,6 +101,16 @@ const Navbar = () => {
                   }}
                 >
                   Our Menu
+                </NavLink>
+                <NavLink
+                  to="/cart"
+                  activeStyle={{
+                    color: "#f91943",
+                  }}
+                >
+                  <Badge badgeContent={cart.length}>
+                    <ShoppingCartIcon color="action" />
+                  </Badge>
                 </NavLink>
 
                 {/* if user exist, the user information will show in this menu avatar */}
