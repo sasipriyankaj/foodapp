@@ -53,6 +53,9 @@ img {
 }
 
 /* Sweet Alert css */
+.swal2-popup {
+  padding: 3em 0 !important;
+}
 .swal2-title {
   font-size: 3rem !important;
 }

@@ -3,7 +3,7 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
-import SendIcon from "@mui/icons-material/Send";
+import RestaurantMenuOutlinedIcon from "@mui/icons-material/RestaurantMenuOutlined";
 import img1 from "../../assets/images/banner/bannerimg1.png";
 import img2 from "../../assets/images/banner/bannerimg2.png";
 import img3 from "../../assets/images/banner/bannerimg3.png";
@@ -27,7 +27,7 @@ const Banner = () => {
               <Button
                 variant="contained"
                 size="large"
-                endIcon={<SendIcon />}
+                endIcon={<RestaurantMenuOutlinedIcon />}
                 className="main-btn"
               >
                 Our Menu

@@ -36,15 +36,28 @@ export const menuSlice = createSlice({
     addToCart: (state, action) => {
       state.cart = action.payload;
     },
+    updateCart: (state, action) => {
+      state.cart = action.payload;
+    },
+    clearCart: (state) => {
+      state.cart = [];
+    },
   },
   extraReducers: (builder) => {
+    builder.addCase(fetchMenu.pending, (state, action) => {
+      state.loading = true;
+    });
     builder.addCase(fetchMenu.fulfilled, (state, action) => {
       state.menu = action.payload;
+      state.loading = false;
+    });
+    builder.addCase(fetchMenu.rejected, (state, action) => {
+      state.loading = false;
     });
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { addToCart } = menuSlice.actions;
+export const { addToCart, updateCart, clearCart } = menuSlice.actions;
 
 export default menuSlice.reducer;

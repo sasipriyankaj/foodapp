@@ -35,6 +35,7 @@ export interface MenuType {
   price: number;
   img: string;
   desc: string;
+  appID: string;
 }
 
 const menu: MenuType[] = [
@@ -45,6 +46,7 @@ const menu: MenuType[] = [
     price: 6.99,
     img: breakfast1,
     desc: `A bagel with cream cheese is a classic breakfast or snack consisting of a round, chewy bread roll and a spread made from soft cheese mixed with milk or cream.`,
+    appID: "price_1MkMivLwkpk3bOzfagavmieg",
   },
   {
     id: 2,

@@ -7,6 +7,7 @@ import CategoryItem from "./CategoryItem";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMenu } from "../../redux/features/menuSlice";
 import type { AppDispatch, RootState } from "../../redux/store/store";
+import loadingImg from "../../assets/images/loading.gif";
 
 // Interface type for menu
 export interface MenuType {
@@ -24,22 +25,32 @@ const MainMenuSection = () => {
     (state: RootState) => state.menu.menu
   ) as MenuType[];
 
+  const isLoading = useSelector((state: RootState) => state.menu.loading);
+
   // get all categories from the Menu Data
-  const allCategories = [
+  const allCategories: string[] = [
     "all",
-    ...new Set(menuData.map((item) => item.category)),
+    ...new Set(menuData && menuData.map((item) => item.category)),
   ];
 
   // important states
-  const [menuItems, setMenuItems] = useState(menuData);
+  const [menuItems, setMenuItems] = useState<MenuType[]>(menuData);
   const [menuIndex, setMenuIndex] = useState(0);
 
   // dispatch function
   const dispatch: AppDispatch = useDispatch();
 
+  // when the is loading false, the menu item will get the menuData. initially it is not come because of async behavior
+  useEffect(() => {
+    if (!isLoading) {
+      setMenuItems(menuData);
+    }
+  }, [isLoading]);
+
+  // load the menu, when the menu page load
   useEffect(() => {
     dispatch(fetchMenu());
-  }, [dispatch, fetchMenu]);
+  }, [dispatch]);
 
   // filter menu according to selecting the category items
   const filterItems = (category: string) => {
@@ -56,6 +67,15 @@ const MainMenuSection = () => {
     }
   };
 
+  // if the page is loading, state then it show the message loading
+  if (isLoading) {
+    return (
+      <div className="loading-container">
+        <img src={loadingImg} alt="loading-img" />
+      </div>
+    );
+  }
+
   return (
     <section className="menu-section">
       <Container>
@@ -67,9 +87,10 @@ const MainMenuSection = () => {
           />
         </div>
         <Grid container spacing={4}>
-          {menuItems.map((data) => {
-            return <SingleMenuItem data={data} key={data.id} />;
-          })}
+          {menuItems &&
+            menuItems.map((data) => {
+              return <SingleMenuItem data={data} key={data.id} />;
+            })}
         </Grid>
       </Container>
     </section>

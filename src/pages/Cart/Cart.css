@@ -1,2 +1,106 @@
 /* Cart CSS */
+table {
+  margin-top: 10em;
+}
+thead tr th {
+  font-size: 1.8rem !important;
+  background-color: var(--main-color);
+  color: #fff !important;
+}
+td img {
+  margin: 0 auto;
+  width: 13rem;
+}
+td.cell-width {
+  font-size: 2rem !important;
+  font-weight: 500;
+}
+.quantity-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.quantity-box .main-btn {
+  font-size: 2rem;
+}
+.quantity-box input {
+  font-size: 2rem;
+  padding: 1rem;
+}
+tr:nth-child(even) {
+  background-color: #ecdfdffb;
+}
+.del-icon {
+  font-size: 2.9rem !important;
+  color: var(--main-color);
+}
+.coupon-total-container {
+  margin-top: 3em !important;
+}
+.coupon-container .MuiInputBase-root .MuiInputBase-input {
+  padding: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+.main-btn.coupon-btn {
+  font-size: 1.5rem;
+  padding: 1.5rem;
+}
+/* Total container | right content */
 
+.subtotal-container,
+.shipping-container,
+.main-total-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2em 0;
+}
+.total-container h4 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+.total-container p {
+  font-size: 2rem;
+  font-weight: 600;
+}
+h4.total-text {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: var(--main-color);
+}
+.main-btn.checkout-btn {
+  font-size: 1.5rem;
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+button.swal2-cancel.swal2-styled.swal2-default-outline {
+  font-size: 1.8rem !important;
+}
+
+/* empty cart container */
+.empty-cart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 15em;
+}
+.empty-cart-container img {
+  width: 15rem;
+  margin-bottom: 2rem;
+}
+.empty-cart-container p {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+.empty-cart-container .main-btn.back-to-menu {
+  font-size: 1.6rem;
+}
+
+/* swal warning icon */
+.swal2-icon.swal2-warning {
+  color: var(--main-color) !important;
+  border-color: var(--main-color) !important;
+}

@@ -61,7 +61,7 @@ const SingleMenuItem = ({ data }: SingleMenuItemProps) => {
     Swal.fire({
       icon: "success",
       title: "Cart updated!",
-      text: `${data.title} is added successfully to the cart.`,
+      text: `${data.title} has been added to the cart.`,
     });
   };
 

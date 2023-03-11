@@ -1,5 +1,5 @@
 import Grid from "@mui/material/Grid";
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useState, ChangeEvent, FormEvent, useEffect } from "react";
 import "./Login.css";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
@@ -58,6 +58,11 @@ const Login = () => {
       password: "",
     });
   };
+
+  // When  i come to this page, it will show from the top
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <section className="login-section">

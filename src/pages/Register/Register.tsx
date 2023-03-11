@@ -1,4 +1,4 @@
-import { useState, useRef, ChangeEvent, FormEvent } from "react";
+import { useState, useRef, ChangeEvent, FormEvent, useEffect } from "react";
 import "./Register.css";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
@@ -55,6 +55,11 @@ const Register = () => {
     // clear the input form
     setNewUserData({ name: "", email: "", password: "" });
   };
+
+  // When  i come to this page, it will show from the top
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <section className="register-section">

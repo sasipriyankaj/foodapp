@@ -60,3 +60,9 @@
 .single-card button {
   font-size: 1.5rem;
 }
+/* loading container */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
