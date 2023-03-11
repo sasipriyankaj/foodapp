@@ -55,6 +55,7 @@ const menu: MenuType[] = [
     price: 26.99,
     img: lunch1,
     desc: `Healthy Meal Plan is a nutritious and satisfying dish that combines a succulent steak with a fresh, colorful salad, providing a balanced and flavorful meal `,
+    appID: "price_1MkMlwLwkpk3bOzfuCB1yF2O",
   },
   {
     id: 3,
@@ -63,6 +64,7 @@ const menu: MenuType[] = [
     price: 9.99,
     img: dinner1,
     desc: `It is a delicious and nutritious dish that features tender, flaky salmon paired with protein-rich lentils and a variety of fresh vegetables, creating a satisfying and flavorful meal `,
+    appID: "price_1MkMnrLwkpk3bOzfVkRGhfTE",
   },
   {
     id: 4,
@@ -71,6 +73,7 @@ const menu: MenuType[] = [
     price: 9.99,
     img: breakfast2,
     desc: `It is a classic morning meal that features a combination of savory ingredients such as eggs, bacon, cheese, and bread, providing a hearty and delicious start to the day.`,
+    appID: "price_1MkMosLwkpk3bOzfnC0S6ejw",
   },
   {
     id: 5,
@@ -79,6 +82,7 @@ const menu: MenuType[] = [
     price: 19.99,
     img: lunch2,
     desc: `Fried Chicken Steam is a flavorful and unique dish that starts with tender and juicy steamed chicken, which is then coated in a crispy batter and sautéed with garlic, onion, and melted cheese, resulting in a delicious and satisfying meal.`,
+    appID: "price_1MkMs5Lwkpk3bOzfUMPgk301",
   },
   {
     id: 6,
@@ -87,6 +91,7 @@ const menu: MenuType[] = [
     price: 10.99,
     img: dinner2,
     desc: `It is a flavorful and tangy dish that features pan-seared salmon fillets in a lemon and butter sauce with capers, creating a bright and zesty flavor profile that pairs well with a variety of side dishes. `,
+    appID: "price_1MkMtLLwkpk3bOzfDnuxdYVw",
   },
   {
     id: 7,
@@ -95,6 +100,7 @@ const menu: MenuType[] = [
     price: 10.99,
     img: breakfast3,
     desc: `A simple and classic dish that involves roasting seasoned chicken in the oven until it's tender, juicy, and golden-brown on the outside. `,
+    appID: "price_1MkMurLwkpk3bOzfeXQIPG0s",
   },
   {
     id: 8,
@@ -103,6 +109,7 @@ const menu: MenuType[] = [
     price: 16.99,
     img: lunch3,
     desc: `A delicious and aromatic dish that features fresh salmon fillets rubbed with a mixture of tarragon, garlic, and olive oil, resulting in a flavorful and healthy meal.`,
+    appID: "price_1MkMwOLwkpk3bOzfaq2GzapE",
   },
   {
     id: 9,
@@ -111,6 +118,7 @@ const menu: MenuType[] = [
     price: 14.99,
     img: dinner3,
     desc: `Pork Tenderloin Pilaf is a hearty and flavorful dish that combines tender pork tenderloin with fragrant rice, vegetables, and aromatic spices, resulting in a delicious and satisfying meal.`,
+    appID: "price_1MkMxuLwkpk3bOzf0lYfDsPV",
   },
   {
     id: 10,
@@ -119,6 +127,7 @@ const menu: MenuType[] = [
     price: 8.99,
     img: breakfast4,
     desc: `It is a simple and tasty breakfast sandwich that features a fried egg served on a flaky croissant, providing a satisfying and flavorful start to the day. `,
+    appID: "price_1MkMzLLwkpk3bOzfQ4p0MGNO",
   },
   {
     id: 11,
@@ -127,6 +136,7 @@ const menu: MenuType[] = [
     price: 18.99,
     img: breakfast5,
     desc: `A classic breakfast dish that consists of a poached egg served on top of an English muffin with Canadian bacon and hollandaise sauce, creating a rich and delicious flavor combination. `,
+    appID: "price_1MkN0xLwkpk3bOzfyjaokuT5",
   },
   {
     id: 12,
@@ -135,6 +145,7 @@ const menu: MenuType[] = [
     price: 10.99,
     img: breakfast6,
     desc: `A dish that features a perfectly cooked poached egg served alongside savory meat, toast, and fresh salad greens, resulting in a satisfying and delicious meal. `,
+    appID: "price_1MkN2RLwkpk3bOzfPOpbYLFJ",
   },
   {
     id: 13,
@@ -143,6 +154,7 @@ const menu: MenuType[] = [
     price: 8.99,
     img: lunch4,
     desc: `Experience the flavors of India with our delicious lunch offering of fragrant vegetable curry, fluffy luchi bread, aromatic rice, and fresh vegetable salad, providing a satisfying and wholesome meal.`,
+    appID: "price_1MkN59Lwkpk3bOzfCI2Zf1yd",
   },
   {
     id: 14,
@@ -151,6 +163,7 @@ const menu: MenuType[] = [
     price: 15.99,
     img: lunch5,
     desc: `A hearty and flavorful dish that features a tender and juicy chicken breast, grilled or pan-seared to perfection, served with a variety of sides such as vegetables, potatoes, or rice, creating a delicious and satisfying meal. `,
+    appID: "price_1MkN6WLwkpk3bOzf0ertgwX8",
   },
   {
     id: 15,
@@ -159,6 +172,7 @@ const menu: MenuType[] = [
     price: 15.99,
     img: lunch6,
     desc: `Honey Glazed Salmon is a delicious and healthy dish that features tender and flaky salmon fillets coated in a sweet and savory honey glaze, creating a mouthwatering flavor profile that pairs well with a variety of side dishes. `,
+    appID: "price_1MkN7yLwkpk3bOzfg6c7TQkC",
   },
   {
     id: 16,
@@ -167,6 +181,7 @@ const menu: MenuType[] = [
     price: 10.99,
     img: dinner4,
     desc: `It is a classic comfort food dish that features crispy and golden fries topped with melted cheese, creating a satisfying and indulgent snack or side dish. `,
+    appID: "price_1MkN9cLwkpk3bOzfhvbLNCro",
   },
   {
     id: 17,
@@ -175,6 +190,7 @@ const menu: MenuType[] = [
     price: 18.99,
     img: dinner5,
     desc: ` A flavorful and aromatic dish that features succulent salmon fillets cooked with a buttery garlic sauce and served alongside toasted bread, creating a satisfying and delicious meal. `,
+    appID: "price_1MkNAwLwkpk3bOzfLOqpO1Il",
   },
   {
     id: 18,
@@ -183,6 +199,7 @@ const menu: MenuType[] = [
     price: 23.99,
     img: dinner6,
     desc: `A simple and classic dish that involves seasoning chicken and cooking it in the oven until it's tender, juicy, and golden-brown on the outside, resulting in a delicious and versatile meal that pairs well with a variety of side dishes.`,
+    appID: "price_1MkNCELwkpk3bOzffgtYV34t",
   },
   {
     id: 19,
@@ -191,6 +208,7 @@ const menu: MenuType[] = [
     price: 7.99,
     img: breakfast7,
     desc: `A healthy and colorful salad made with fresh lettuce, sliced tomatoes, grated carrots, and a variety of nutritious toppings, providing a tasty and wholesome meal.`,
+    appID: "price_1MkNDfLwkpk3bOzfTZv6AjLE",
   },
   {
     id: 20,
@@ -199,6 +217,7 @@ const menu: MenuType[] = [
     price: 8.99,
     img: breakfast8,
     desc: `It is a beloved and versatile dish that typically involves cooking pasta noodles with a flavorful sauce made from ingredients such as tomatoes, garlic, and herbs, resulting in a delicious and satisfying meal that can be customized with a variety of meats, vegetables, and cheeses.`,
+    appID: "price_1MkNFkLwkpk3bOzfDa2vtbEO",
   },
   {
     id: 21,
@@ -207,6 +226,7 @@ const menu: MenuType[] = [
     price: 18.99,
     img: breakfast9,
     desc: `A flavorful and cheesy dish that features a delicious blend of tomatoes, garlic, onion, and spices, creating a savory and aromatic flavor profile that pairs well with a variety of side dishes. `,
+    appID: "price_1MkNHJLwkpk3bOzfgg69q5te",
   },
   {
     id: 22,
@@ -215,6 +235,7 @@ const menu: MenuType[] = [
     price: 13.99,
     img: lunch7,
     desc: `Mushroom salad is a nutritious and flavorful dish that typically involves mixing fresh mushrooms with a variety of greens, vegetables, and dressings, creating a satisfying and wholesome meal that is both delicious and healthy. `,
+    appID: "price_1MkNIbLwkpk3bOzfd6B2eY0k",
   },
   {
     id: 23,
@@ -223,6 +244,7 @@ const menu: MenuType[] = [
     price: 10.99,
     img: lunch8,
     desc: `A mixed salad that typically includes both vegetarian and non-vegetarian ingredients such as fresh greens, vegetables, nuts, eggs, and meats, creating a delicious and satisfying meal that caters to a wide range of dietary preferences.`,
+    appID: "price_1MkNK0Lwkpk3bOzfEn5m8A1N",
   },
   {
     id: 24,
@@ -231,6 +253,7 @@ const menu: MenuType[] = [
     price: 21.99,
     img: lunch9,
     desc: `Mozzarella pasta is a popular Italian dish that typically features pasta noodles coated in a creamy tomato-based sauce and topped with melted mozzarella cheese, resulting in a rich and satisfying meal that is both comforting and delicious.`,
+    appID: "price_1MkNL9Lwkpk3bOzfKCYnJdWX",
   },
   {
     id: 25,
@@ -239,6 +262,7 @@ const menu: MenuType[] = [
     price: 10.99,
     img: dinner7,
     desc: `A nourishing and flavorful dish that typically includes a savory broth made from ingredients such as meat, seafood, vegetables, and spices, creating a comforting and satisfying meal that is often enjoyed as a starter or main course in Chinese cuisine.`,
+    appID: "price_1MkNMmLwkpk3bOzf5UskePMS",
   },
   {
     id: 26,
@@ -247,6 +271,7 @@ const menu: MenuType[] = [
     price: 13.99,
     img: dinner8,
     desc: `Japanese sushi is a popular dish made with specially seasoned rice and a variety of fresh seafood, vegetables, and other ingredients, often rolled into bite-sized pieces or served as individual portions, resulting in a flavorful and colorful culinary experience that is enjoyed worldwide.`,
+    appID: "price_1MkNOlLwkpk3bOzfK1cPGXan",
   },
   {
     id: 27,
@@ -255,6 +280,7 @@ const menu: MenuType[] = [
     price: 19.99,
     img: dinner9,
     desc: `A simple yet delicious dish consisting of fresh greens, vegetables, and other toppings served alongside warm, freshly baked bread, offering a satisfying and balanced meal that is easy to prepare and enjoy. `,
+    appID: "price_1MkNPtLwkpk3bOzfDRCtaJ0R",
   },
 ];
 
