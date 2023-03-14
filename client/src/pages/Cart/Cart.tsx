@@ -206,9 +206,9 @@ const Cart = () => {
                         <Button
                           variant="contained"
                           size="medium"
-                          className="main-btn"
+                          className={item.quantity === 1 ? "main-btn event-none": "main-btn"}
                           onClick={(e) => decreaseQuantity(e, index)}
-                          disabled={item.quantity === 1 ? true : false}
+                          
                         >
                           -
                         </Button>

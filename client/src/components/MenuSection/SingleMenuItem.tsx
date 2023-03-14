@@ -49,6 +49,7 @@ const SingleMenuItem = ({ data }: SingleMenuItemProps) => {
           img: data.img,
           price: data.price,
           quantity: 1,
+          appID: data.appID,
         },
       ];
 

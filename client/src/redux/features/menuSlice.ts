@@ -20,6 +20,7 @@ export interface CartItem {
   price: number;
   img: string;
   quantity: number;
+  appID: string
 }
 
 // initial State

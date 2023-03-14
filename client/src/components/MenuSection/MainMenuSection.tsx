@@ -17,6 +17,7 @@ export interface MenuType {
   price: number;
   img: string;
   desc: string;
+  appID: string;
 }
 
 const MainMenuSection = () => {

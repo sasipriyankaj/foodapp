@@ -98,6 +98,9 @@ button.swal2-cancel.swal2-styled.swal2-default-outline {
 .empty-cart-container .main-btn.back-to-menu {
   font-size: 1.6rem;
 }
+.main-btn.event-none {
+  pointer-events: none;
+}
 
 /* swal warning icon */
 .swal2-icon.swal2-warning {
