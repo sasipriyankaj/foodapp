@@ -149,6 +149,26 @@ const Cart = () => {
     });
   };
 
+  // checkout stripe handle
+  const checkOutHandle = async (event: MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+
+    // post data
+    await fetch("http://localhost:4000/checkout", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(cartList),
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.url) {
+          window.location.assign(response.url);
+        }
+      });
+  };
+
   // if cart list is empty, show empty cart icon with text
   if (cartList.length === 0) {
     return (
@@ -206,9 +226,12 @@ const Cart = () => {
                         <Button
                           variant="contained"
                           size="medium"
-                          className={item.quantity === 1 ? "main-btn event-none": "main-btn"}
+                          className={
+                            item.quantity === 1
+                              ? "main-btn event-none"
+                              : "main-btn"
+                          }
                           onClick={(e) => decreaseQuantity(e, index)}
-                          
                         >
                           -
                         </Button>
@@ -292,6 +315,7 @@ const Cart = () => {
                   size="medium"
                   className="main-btn checkout-btn"
                   fullWidth
+                  onClick={checkOutHandle}
                   endIcon={<KeyboardTabOutlinedIcon />}
                 >
                   Checkout
