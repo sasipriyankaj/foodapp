@@ -15,7 +15,6 @@ app.use(express.json());
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 app.post("/checkout", async (req, res) => {
-  console.log(req.body);
   // create array, what the stripe acually wants price and quantity format
   let cartItem = [];
   const getCartItem = req.body;
@@ -29,6 +28,15 @@ app.post("/checkout", async (req, res) => {
   //   send to the stripe
   const session = await stripe.checkout.sessions.create({
     line_items: cartItem,
+    shipping_options: [
+      {
+        shipping_rate_data: {
+          type: "fixed_amount",
+          fixed_amount: { amount: 500, currency: "usd" },
+          display_name: "Delivery Charge",
+        },
+      },
+    ],
     mode: "payment",
     success_url: "http://localhost:5173/success",
     cancel_url: "http://localhost:5173/cancel",

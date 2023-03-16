@@ -4,7 +4,7 @@ import "./App.css";
 import MainTemplate from "./components/MainTemplate/MainTemplate";
 import About from "./pages/About/About";
 import Cart from "./pages/Cart/Cart";
-import Checkout from "./pages/Checkout/Checkout";
+import ErrorPayment from "./pages/ErrorPayment/ErrorPayment";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import Menu from "./pages/Menu/Menu";
@@ -20,7 +20,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/cancel" element={<ErrorPayment />} />
       </Routes>
     </MainTemplate>
   );

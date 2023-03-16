@@ -1,4 +1,4 @@
-import { useState, useEffect, MouseEvent } from "react";
+import { useState, useEffect, MouseEvent, ChangeEvent } from "react";
 import "./Cart.css";
 import Container from "@mui/material/Container";
 import SectionTop from "../../components/SectionTop/SectionTop";
@@ -68,6 +68,36 @@ const Cart = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  // handle quantity input
+  const handleQuantityInput = (
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    index: number
+  ) => {
+    const value = Number(event.target.value);
+
+    // set the cartlist
+    setCartList((prevCart) => {
+      const cart = [...prevCart];
+      let updatedCartItem;
+      if (value > 0) {
+        updatedCartItem = {
+          ...cart[index],
+          quantity: value,
+        };
+      } else {
+        updatedCartItem = {
+          ...cart[index],
+          quantity: 1,
+        };
+      }
+      cart[index] = updatedCartItem;
+
+      // update the store with the data
+      dispatch(updateCart(cart));
+      return cart;
+    });
+  };
 
   // decrease quantity
   const decreaseQuantity = (
@@ -240,8 +270,9 @@ const Cart = () => {
                           type="number"
                           name="quantity"
                           value={item.quantity}
-                          InputProps={{
-                            readOnly: true,
+                          onChange={(e) => handleQuantityInput(e, index)}
+                          inputProps={{
+                            min: 1,
                           }}
                         />
                         {/* increase quantity */}
