@@ -1,6 +1,6 @@
 /* Error Payment Css */
 .error-payment-section {
-  padding: 15em 0;
+  padding: 15em 0 10em;
   display: grid;
   place-items: center;
 }
@@ -16,4 +16,24 @@
   -webkit-backdrop-filter: blur(4px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.error-content {
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+}
+.error-content h2 {
+  font-size: 3.5rem;
+  color: var(--main-color);
+  margin: 2rem 0;
+}
+.error-content p {
+  font-size: 2rem;
+  line-height: 1.25;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.error-content .main-btn {
+  font-size: 1.6rem;
 }

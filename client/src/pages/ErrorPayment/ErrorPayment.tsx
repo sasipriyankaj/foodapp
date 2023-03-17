@@ -1,4 +1,4 @@
-import failedPayment from "../../assets/images/failed_payment.gif";
+import failedPayment from "../../assets/images/payment-error.jpg";
 import "./ErrorPayment.css";
 import Button from "@mui/material/Button";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
@@ -15,7 +15,7 @@ const ErrorPayment = () => {
           <p>
             We are sorry, but your payment did not go through. Please ensure
             that your payment information is correct and try again. If you need
-            further assistance, please contact our support team
+            further assistance, please contact us.
           </p>
           <Button
             variant="contained"
