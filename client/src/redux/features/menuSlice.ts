@@ -20,7 +20,7 @@ export interface CartItem {
   price: number;
   img: string;
   quantity: number;
-  appID: string
+  appID: string;
 }
 
 // initial State
@@ -45,14 +45,14 @@ export const menuSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchMenu.pending, (state, action) => {
+    builder.addCase(fetchMenu.pending, (state) => {
       state.loading = true;
     });
     builder.addCase(fetchMenu.fulfilled, (state, action) => {
       state.menu = action.payload;
       state.loading = false;
     });
-    builder.addCase(fetchMenu.rejected, (state, action) => {
+    builder.addCase(fetchMenu.rejected, (state) => {
       state.loading = false;
     });
   },

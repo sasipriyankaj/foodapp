@@ -13,6 +13,7 @@ import {
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { errorUser, getUser, loadingUser } from "../redux/features/userSlice";
+import { useNavigate, useLocation } from "react-router-dom";
 
 // ES6 Modules or TypeScript
 import Swal from "sweetalert2";
@@ -28,6 +29,9 @@ const firebaseAuth = () => {
 
   // redux dispatch
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
+  const location = useLocation();
 
   // Observe User if user log in
   useEffect(() => {
@@ -139,6 +143,11 @@ const firebaseAuth = () => {
           title: "Successfully logged In!",
           text: "You have successfully logged in our Website!",
         });
+        // check if the state object contains a 'from' location
+        const { from = { pathname: "/" } } = location.state || {};
+
+        // redirect the user to the 'from' location if it exists, or to the default route otherwise
+        navigate(from ? from.pathname : "/", { replace: true });
       })
       .catch((error) => {
         // Handle Errors here.

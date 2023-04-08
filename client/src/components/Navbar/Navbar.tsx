@@ -103,6 +103,14 @@ const Navbar = () => {
                   Our Menu
                 </NavLink>
                 <NavLink
+                  to="/reservation"
+                  activeStyle={{
+                    color: "#f91943",
+                  }}
+                >
+                  Reservation
+                </NavLink>
+                <NavLink
                   to="/cart"
                   activeStyle={{
                     color: "#f91943",

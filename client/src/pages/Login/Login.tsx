@@ -13,6 +13,7 @@ import NavLink from "../../components/NavLink/NavLink";
 import facebookIcon from "../../assets/images/icons/facebook.svg";
 import googleIcon from "../../assets/images/icons/google.svg";
 import firebaseAuth from "../../firebase/firebaseAuth";
+import { useNavigate, useLocation } from "react-router-dom";
 // ES6 Modules or TypeScript
 import Swal from "sweetalert2";
 
@@ -23,6 +24,8 @@ const Login = () => {
     password: "",
   });
   const { logInUser, googleLogin, facebookLogin } = firebaseAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   // handle change functionality
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -46,7 +49,6 @@ const Login = () => {
         title: "Something Wrong!",
         text: "Password length must be at least six characters.",
       });
-      return;
     }
 
     // send data to firebase and start the login process
@@ -57,6 +59,12 @@ const Login = () => {
       email: "",
       password: "",
     });
+
+    // check if the state object contains a 'from' location
+    const { from = { pathname: "/" } } = location.state || {};
+
+    // redirect the user to the 'from' location if it exists, or to the default route otherwise
+    navigate(from ? from.pathname : "/", { replace: true });
   };
 
   // When  i come to this page, it will show from the top

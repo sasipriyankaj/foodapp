@@ -7,6 +7,7 @@ import {
   orderBy,
   onSnapshot,
   doc,
+  setDoc,
 } from "firebase/firestore";
 
 // initialize firebase
@@ -32,7 +33,22 @@ const firebaseStorage = () => {
     return data;
   };
 
-  return { getMenu };
+  interface ReserveDataProps {
+    date: string;
+    time: string;
+    name: string;
+    email: string;
+  }
+
+  // reserve table
+  const reserveTable = async (data: ReserveDataProps) => {
+    console.log(`first`);
+    await setDoc(doc(db, "reservations", data.email), data);
+
+    alert(`submitted`);
+  };
+
+  return { getMenu, reserveTable };
 };
 
 export default firebaseStorage;
