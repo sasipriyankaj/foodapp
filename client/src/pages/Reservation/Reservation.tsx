@@ -1,11 +1,10 @@
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, useEffect } from "react";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import "./Reservation.css";
 import dayjs, { Dayjs } from "dayjs";
 import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
-import InputLabel from "@mui/material/InputLabel";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
@@ -59,6 +58,11 @@ const Reservation = () => {
 
     reserveTable(reserveData);
   };
+
+  // When  i come to this page, it will show from the top
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <section className="reservation-section">
@@ -131,23 +135,21 @@ const Reservation = () => {
                   </div>
 
                   {/* Comments */}
-                  <div className="Comments">
-                    <TextField
-                      label="Comments"
-                      placeholder="Comments"
-                      variant="standard"
-                      type="text"
-                      name="comments"
-                      fullWidth
-                      InputProps={{
-                        startAdornment: (
-                          <InputAdornment position="start">
-                            <MessageIcon />
-                          </InputAdornment>
-                        ),
-                      }}
-                    />
-                  </div>
+                  <TextField
+                    label="Comments"
+                    placeholder="Comments"
+                    variant="standard"
+                    type="text"
+                    name="comments"
+                    multiline
+                    rows={4}
+                    fullWidth
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start"></InputAdornment>
+                      ),
+                    }}
+                  />
                 </div>
                 {/* Submit Form Button */}
                 <Button

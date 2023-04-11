@@ -8,7 +8,28 @@ import {
   onSnapshot,
   doc,
   setDoc,
+  Timestamp,
 } from "firebase/firestore";
+
+// Data Types
+interface ReserveDataProps {
+  date: string;
+  time: string;
+  name: string;
+  email: string;
+}
+interface OrderDataProps {
+  cart: object[];
+  city: string;
+  road: string;
+  deliveryInfo: string;
+  phone: string;
+  user: {
+    displayName: string;
+    email: string;
+    photoURL: string;
+  };
+}
 
 // initialize firebase
 const app = firebaseInitialize();
@@ -33,22 +54,20 @@ const firebaseStorage = () => {
     return data;
   };
 
-  interface ReserveDataProps {
-    date: string;
-    time: string;
-    name: string;
-    email: string;
-  }
-
   // reserve table
   const reserveTable = async (data: ReserveDataProps) => {
-    console.log(`first`);
     await setDoc(doc(db, "reservations", data.email), data);
-
-    alert(`submitted`);
   };
 
-  return { getMenu, reserveTable };
+  // set Order
+  const setOrder = async (data: OrderDataProps) => {
+    const orderData = {
+      ...data,
+      date: Timestamp.fromDate(new Date()),
+    };
+    await setDoc(doc(db, "orderlist", data.user.email), orderData);
+  };
+  return { getMenu, reserveTable, setOrder };
 };
 
 export default firebaseStorage;

@@ -47,7 +47,7 @@ const Navbar = () => {
     setAnchorEl(null);
   };
 
-  // get user from store
+  // get user and cart from store
   const { user } = useSelector((state: RootState) => state.user);
   const cart = useSelector((state: RootState) => state.menu.cart);
   const { logOut } = firebaseAuth();

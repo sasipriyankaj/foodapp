@@ -2,6 +2,9 @@
 const express = require("express");
 const cors = require("cors");
 
+// important variables
+let orderInfo = {};
+
 // creating server
 const app = express();
 
@@ -17,7 +20,8 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 app.post("/checkout", async (req, res) => {
   // create array, what the stripe acually wants price and quantity format
   let cartItem = [];
-  const getCartItem = req.body;
+  orderInfo = req.body;
+  const getCartItem = req.body.cart;
   getCartItem.forEach((items) => {
     cartItem.push({
       price: items.appID,
@@ -38,7 +42,7 @@ app.post("/checkout", async (req, res) => {
       },
     ],
     mode: "payment",
-    success_url: "http://localhost:5173/success",
+    success_url: "http://localhost:5173/myorder",
     cancel_url: "http://localhost:5173/cancel",
   });
 
@@ -56,6 +60,11 @@ app.post("/checkout", async (req, res) => {
       url: session.url,
     })
   );
+});
+
+app.get("/myorder", (req, res) => {
+  res.json(orderInfo);
+  orderInfo = {};
 });
 
 // run the server

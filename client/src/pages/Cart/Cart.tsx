@@ -22,12 +22,15 @@ import emptyCart from "../../assets/images/emptycart.gif";
 import RestaurantMenuOutlinedIcon from "@mui/icons-material/RestaurantMenuOutlined";
 // ES6 Modules or TypeScript
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router";
 
 const Cart = () => {
   // get cart from store
   const cart: CartItem[] = useSelector(
     (state: RootState) => state.menu.cart
   ) as CartItem[];
+
+  const navigate = useNavigate();
 
   // dispatch function
   const dispatch: AppDispatch = useDispatch();
@@ -179,26 +182,6 @@ const Cart = () => {
     });
   };
 
-  // checkout stripe handle
-  const checkOutHandle = async (event: MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-
-    // post data
-    await fetch("http://localhost:4000/checkout", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(cartList),
-    })
-      .then((response) => response.json())
-      .then((response) => {
-        if (response.url) {
-          window.location.assign(response.url);
-        }
-      });
-  };
-
   // if cart list is empty, show empty cart icon with text
   if (cartList.length === 0) {
     return (
@@ -343,13 +326,13 @@ const Cart = () => {
                 </div>
                 <Button
                   variant="contained"
-                  size="medium"
-                  className="main-btn checkout-btn"
+                  type="submit"
+                  className="main-btn"
                   fullWidth
-                  onClick={checkOutHandle}
                   endIcon={<KeyboardTabOutlinedIcon />}
+                  onClick={() => navigate("/delivery")}
                 >
-                  Checkout
+                  Continue
                 </Button>
               </div>
             </Grid>
