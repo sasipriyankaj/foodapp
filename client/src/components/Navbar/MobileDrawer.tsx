@@ -1,3 +1,4 @@
+// import important modules
 import "./Navbar.css";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -23,13 +24,16 @@ import TableRestaurantIcon from "@mui/icons-material/TableRestaurant";
 import firebaseAuth from "../../firebase/firebaseAuth";
 import LogoutIcon from "@mui/icons-material/Logout";
 
+// Type declaration of MobileDrawerDataType
 interface MobileDrawerDataType {
   mobileOpen: boolean;
   setMobileOpen: Dispatch<SetStateAction<boolean>>;
 }
 
+// set the width of drawer
 const drawerWidth = 300;
 
+// using makeStyle function to set the width
 const useStyles = makeStyles({
   drawer: {
     width: drawerWidth,
@@ -37,15 +41,18 @@ const useStyles = makeStyles({
 });
 
 const MobileDrawer = ({ mobileOpen, setMobileOpen }: MobileDrawerDataType) => {
-  // get user and cart from store
+  // get user and Logout from store and firebaseAuth
   const { user } = useSelector((state: RootState) => state.user);
   const { logOut } = firebaseAuth();
 
+  // Toggle the drawer
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
+  // define class by calling useStyles function
   const classes = useStyles();
+
   return (
     <Drawer
       className={classes.drawer}
@@ -55,6 +62,7 @@ const MobileDrawer = ({ mobileOpen, setMobileOpen }: MobileDrawerDataType) => {
       onClose={handleDrawerToggle}
       anchor="left"
     >
+      {/* Top Right Close Button */}
       <Box sx={{ textAlign: "right", pt: 3, mr: 3 }}>
         <div className="close-btn">
           <IconButton aria-label="delete" onClick={handleDrawerToggle}>
@@ -63,10 +71,11 @@ const MobileDrawer = ({ mobileOpen, setMobileOpen }: MobileDrawerDataType) => {
         </div>
       </Box>
 
-      <List sx={{ mt: 2 }}>
+      {/* List of  Different options */}
+      <List sx={{ mt: 3 }}>
         {/* Home  */}
         <NavLink to="/" onClick={handleDrawerToggle}>
-          <ListItem disablePadding>
+          <ListItem disablePadding className="item-list">
             <ListItemButton>
               <ListItemIcon>
                 <HomeIcon />
@@ -75,9 +84,10 @@ const MobileDrawer = ({ mobileOpen, setMobileOpen }: MobileDrawerDataType) => {
             </ListItemButton>
           </ListItem>
         </NavLink>
+
         {/* About */}
         <NavLink to="/about" onClick={handleDrawerToggle}>
-          <ListItem disablePadding>
+          <ListItem disablePadding className="item-list">
             <ListItemButton>
               <ListItemIcon>
                 <InfoIcon />
@@ -89,7 +99,7 @@ const MobileDrawer = ({ mobileOpen, setMobileOpen }: MobileDrawerDataType) => {
 
         {/* Menu */}
         <NavLink to="/menu" onClick={handleDrawerToggle}>
-          <ListItem disablePadding>
+          <ListItem disablePadding className="item-list">
             <ListItemButton>
               <ListItemIcon>
                 <RestaurantMenuIcon />
@@ -101,7 +111,7 @@ const MobileDrawer = ({ mobileOpen, setMobileOpen }: MobileDrawerDataType) => {
 
         {/* Reservation */}
         <NavLink to="/reservation" onClick={handleDrawerToggle}>
-          <ListItem disablePadding>
+          <ListItem disablePadding className="item-list">
             <ListItemButton>
               <ListItemIcon>
                 <EventSeatIcon />
@@ -111,10 +121,10 @@ const MobileDrawer = ({ mobileOpen, setMobileOpen }: MobileDrawerDataType) => {
           </ListItem>
         </NavLink>
 
-        {/* Login or other information */}
+        {/* If user email not exist, show Login Option. Otherwise show the options that are in private route information */}
         {!user.email ? (
           <NavLink to="/login" onClick={handleDrawerToggle}>
-            <ListItem disablePadding>
+            <ListItem disablePadding className="item-list">
               <ListItemButton>
                 <ListItemIcon>
                   <LoginIcon />
@@ -127,7 +137,7 @@ const MobileDrawer = ({ mobileOpen, setMobileOpen }: MobileDrawerDataType) => {
           <>
             {/* My Order */}
             <NavLink to="/myorder" onClick={handleDrawerToggle}>
-              <ListItem disablePadding>
+              <ListItem disablePadding className="item-list">
                 <ListItemButton>
                   <ListItemIcon>
                     <BrunchDiningIcon />
@@ -139,7 +149,7 @@ const MobileDrawer = ({ mobileOpen, setMobileOpen }: MobileDrawerDataType) => {
 
             {/* My Reservations */}
             <NavLink to="/myreservation" onClick={handleDrawerToggle}>
-              <ListItem disablePadding>
+              <ListItem disablePadding className="item-list">
                 <ListItemButton>
                   <ListItemIcon>
                     <TableRestaurantIcon />
@@ -151,7 +161,7 @@ const MobileDrawer = ({ mobileOpen, setMobileOpen }: MobileDrawerDataType) => {
 
             {/* Log out */}
             <div className="log-out-mobile-menu" onClick={handleDrawerToggle}>
-              <ListItem disablePadding onClick={logOut}>
+              <ListItem disablePadding onClick={logOut} className="item-list">
                 <ListItemButton>
                   <ListItemIcon>
                     <LogoutIcon />

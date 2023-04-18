@@ -29,7 +29,6 @@ div#\:r0\: {
 li.MuiButtonBase-root {
   font-size: 1.4rem;
 }
-
 svg.MuiSvgIcon-root.MuiSvgIcon-colorAction {
   font-size: 2.2rem;
 }
@@ -38,7 +37,6 @@ svg.MuiSvgIcon-root.MuiSvgIcon-colorAction {
   background: var(--main-color);
   color: #fff;
 }
-
 #mobile-menu-btn {
   color: black;
 }
@@ -47,4 +45,23 @@ svg.MuiSvgIcon-root.MuiSvgIcon-colorAction {
 }
 .menu-cart-mobile-icon {
   margin-right: 1.85em;
+}
+.close-btn svg {
+  font-size: 2.8rem;
+}
+.item-list svg {
+  font-size: 2.5rem;
+}
+.item-list .MuiListItemText-root span {
+  font-size: 1.6rem;
+  color: var(--light-black);
+  font-weight: 400;
+}
+.item-list:hover {
+  background: var(--main-color);
+}
+.item-list:hover.item-list svg,
+.item-list:hover.item-list .MuiListItemText-root span {
+  color: #fff;
+  font-weight: 600;
 }

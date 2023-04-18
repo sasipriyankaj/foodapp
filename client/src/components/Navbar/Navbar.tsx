@@ -1,8 +1,8 @@
+// import important modules
 import { useState, MouseEvent } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Container from "@mui/material/Container";
-import { makeStyles } from "@mui/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Box from "@mui/material/Box";
 import logo from "../../assets/images/logo.png";
@@ -17,9 +17,8 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Avatar from "@mui/material/Avatar";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import Divider from "@mui/material/Divider";
-import PersonAdd from "@mui/icons-material/PersonAdd";
-import Settings from "@mui/icons-material/Settings";
+import BrunchDiningIcon from "@mui/icons-material/BrunchDining";
+import TableRestaurantIcon from "@mui/icons-material/TableRestaurant";
 import Logout from "@mui/icons-material/Logout";
 import Tooltip from "@mui/material/Tooltip";
 import Badge from "@mui/material/Badge";
@@ -27,25 +26,21 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useNavigate } from "react-router";
 import MobileDrawer from "./MobileDrawer";
 
-// Drawer Styles
-const useStyles = makeStyles({
-  drawer: {
-    width: 240,
-  },
-});
-
 const Navbar = () => {
   // Important State Declare
   const [mobileOpen, setMobileOpen] = useState(false);
   const matches = useMediaQuery("(max-width:900px)");
-  console.log(matches);
 
   // user avatar important states
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
   const open = Boolean(anchorEl);
+
+  // When click on the avatar in desktop, show the menu
   const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
+
+  // Close the menu function
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -53,17 +48,19 @@ const Navbar = () => {
   // get user and cart from store
   const { user } = useSelector((state: RootState) => state.user);
   const cart = useSelector((state: RootState) => state.menu.cart);
+
+  // get logOut and navigate
   const { logOut } = firebaseAuth();
   const navigate = useNavigate();
 
+  // Toggle the drawer
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
-  // store useStyles function in the variable classes
-  const classes = useStyles();
   return (
     <>
+      {/* Startting Appbar/ Navbar */}
       <AppBar position="fixed" className="navbar">
         <Toolbar disableGutters>
           <Container
@@ -73,16 +70,19 @@ const Navbar = () => {
               justifyContent: "space-between",
             }}
           >
-            {/* left Content */}
+            {/* left Content for DeskTop */}
             <Box>
-              <img src={logo} alt="mrchef_logo" className="logo" />
+              <NavLink to="/">
+                <img src={logo} alt="mrchef_logo" className="logo" />
+              </NavLink>
             </Box>
 
-            {/* Right Content */}
+            {/* Right Content for Desktop */}
             <Box component="div" sx={{ display: "flex", alignItems: "center" }}>
               {/* If the width is more than 900px, right menu item will appear */}
               {!matches && (
                 <Box className="right_menu">
+                  {/* Home */}
                   <NavLink
                     to="/"
                     activeStyle={{
@@ -91,6 +91,8 @@ const Navbar = () => {
                   >
                     Home
                   </NavLink>
+
+                  {/* About */}
                   <NavLink
                     to="/about"
                     activeStyle={{
@@ -99,6 +101,8 @@ const Navbar = () => {
                   >
                     About
                   </NavLink>
+
+                  {/* Menu */}
                   <NavLink
                     to="/menu"
                     activeStyle={{
@@ -107,6 +111,8 @@ const Navbar = () => {
                   >
                     Our Menu
                   </NavLink>
+
+                  {/* Reservation */}
                   <NavLink
                     to="/reservation"
                     activeStyle={{
@@ -115,18 +121,22 @@ const Navbar = () => {
                   >
                     Reservation
                   </NavLink>
+
+                  {/* Cart */}
                   <NavLink
                     to="/cart"
                     activeStyle={{
                       color: "#f91943",
                     }}
                   >
-                    <Badge badgeContent={cart.length}>
-                      <ShoppingCartIcon color="action" />
-                    </Badge>
+                    <Tooltip title="Cart">
+                      <Badge badgeContent={cart.length}>
+                        <ShoppingCartIcon color="action" />
+                      </Badge>
+                    </Tooltip>
                   </NavLink>
 
-                  {/* if user exist, the user information will show in this menu avatar */}
+                  {/* if user exist, the user information will show in this menu avatar, otherwise it will not show */}
                   {user.email && (
                     <>
                       <Box>
@@ -169,6 +179,7 @@ const Navbar = () => {
                           </IconButton>
                         </Tooltip>
                       </Box>
+                      {/* Menu for Desktop, when the menu avatar clicked, it will show the following menu */}
                       <Menu
                         anchorEl={anchorEl}
                         id="account-menu"
@@ -182,8 +193,8 @@ const Navbar = () => {
                             filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
                             mt: 1.5,
                             "& .MuiAvatar-root": {
-                              width: 32,
-                              height: 32,
+                              width: 38,
+                              height: 38,
                               ml: -0.5,
                               mr: 1,
                             },
@@ -211,21 +222,37 @@ const Navbar = () => {
                         }}
                       >
                         <MenuItem onClick={handleClose}>
-                          <span onClick={() => navigate("/myorder")}>
-                            <Avatar /> My Order
-                          </span>
-                        </MenuItem>
-
-                        <MenuItem onClick={handleClose}>
-                          <span onClick={() => navigate("/myreservation")}>
-                            <Avatar /> My Reservation
-                          </span>
-                        </MenuItem>
-
-                        <MenuItem onClick={handleClose}>
-                          <span className="log-out" onClick={logOut}>
+                          <span
+                            onClick={() => navigate("/myorder")}
+                            style={{ fontSize: "16px" }}
+                          >
                             <ListItemIcon>
-                              <Logout fontSize="small" />
+                              <BrunchDiningIcon />
+                            </ListItemIcon>
+                            My Order
+                          </span>
+                        </MenuItem>
+
+                        <MenuItem onClick={handleClose}>
+                          <span
+                            onClick={() => navigate("/myreservation")}
+                            style={{ fontSize: "16px" }}
+                          >
+                            <ListItemIcon>
+                              <TableRestaurantIcon />
+                            </ListItemIcon>
+                            My Reservation
+                          </span>
+                        </MenuItem>
+
+                        <MenuItem onClick={handleClose}>
+                          <span
+                            className="log-out"
+                            onClick={logOut}
+                            style={{ fontSize: "16px" }}
+                          >
+                            <ListItemIcon>
+                              <Logout />
                             </ListItemIcon>
                             Logout
                           </span>
@@ -234,7 +261,7 @@ const Navbar = () => {
                     </>
                   )}
 
-                  {/* if there is no user show log in Button */}
+                  {/* if there is no user show Login Button */}
                   {!user.email && (
                     <NavLink
                       to="/login"
@@ -248,7 +275,7 @@ const Navbar = () => {
                 </Box>
               )}
 
-              {/* If the width is equal and less than 900px, it will show a menu icon */}
+              {/* If the width is equal and less than 900px, it will show a menu, cart icon */}
               {matches && (
                 <NavLink
                   to="/cart"
@@ -274,11 +301,46 @@ const Navbar = () => {
                   <MenuIcon />
                 </IconButton>
               )}
+
+              {/* if the width is less than 900px and user's photo exist, it will show avatar of user's image */}
+              {matches && user.photoURL && (
+                <Tooltip title={user.displayName}>
+                  <Avatar
+                    sx={{
+                      width: 35,
+                      height: 35,
+                    }}
+                    src={user.photoURL}
+                    alt="user-image"
+                  >
+                    {user.displayName && user.displayName.slice(0, 1)}
+                  </Avatar>
+                </Tooltip>
+              )}
+
+              {/* if the width is less than 900px and user's photo does not exist, Then it will show avatar of user's Name */}
+              {matches && user && user.displayName && !user.photoURL && (
+                <Tooltip title={user.displayName}>
+                  <Avatar
+                    sx={{
+                      width: 35,
+                      height: 35,
+                      background: "#f91943",
+                      fontWeight: "700",
+                      textTransform: "uppercase",
+                      fontSize: "1.6rem",
+                    }}
+                  >
+                    {user.displayName && user.displayName.slice(0, 1)}
+                  </Avatar>
+                </Tooltip>
+              )}
             </Box>
           </Container>
         </Toolbar>
       </AppBar>
 
+      {/* When the mobile Open triggerd, it will show the drawer */}
       {mobileOpen && (
         <MobileDrawer mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} />
       )}
