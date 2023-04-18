@@ -69,6 +69,7 @@ const Delivery = () => {
       city: deliveryOptions.city,
       road: deliveryOptions.road,
       deliveryInfo: deliveryOptions.deliveryInfo,
+      email: user.email,
       phone,
     };
 

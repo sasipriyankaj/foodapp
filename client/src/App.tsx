@@ -11,6 +11,7 @@ import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import Menu from "./pages/Menu/Menu";
 import MyOrder from "./pages/MyOrder/MyOrder";
+import MyReservation from "./pages/MyReservation/MyReservation";
 import Register from "./pages/Register/Register";
 import Reservation from "./pages/Reservation/Reservation";
 
@@ -31,11 +32,26 @@ function App() {
             </PrivateRoute>
           }
         />
+        <Route
+          path="/myorder"
+          element={
+            <PrivateRoute path="/myorder">
+              <MyOrder />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/myreservation"
+          element={
+            <PrivateRoute path="/myreservation">
+              <MyReservation />
+            </PrivateRoute>
+          }
+        />
         <Route path="/register" element={<Register />} />
         <Route path="/delivery" element={<Delivery />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/cancel" element={<ErrorPayment />} />
-        <Route path="/myorder" element={<MyOrder />} />
       </Routes>
     </MainTemplate>
   );

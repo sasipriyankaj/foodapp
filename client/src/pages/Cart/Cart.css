@@ -1,5 +1,5 @@
 /* Cart CSS */
-table {
+.cart-section table {
   margin-top: 10em;
 }
 thead tr th {

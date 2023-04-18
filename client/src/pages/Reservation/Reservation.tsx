@@ -17,22 +17,46 @@ import Select, { SelectChangeEvent } from "@mui/material/Select";
 import InputAdornment from "@mui/material/InputAdornment";
 import MessageIcon from "@mui/icons-material/Message";
 import ReservationImg from "../../assets/images/reservation.jpeg";
+// ES6 Modules or TypeScript
+import Swal from "sweetalert2";
 import firebaseStorage from "../../firebase/firebaseStorage";
 import "./Reservation.css";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store/store";
+import "react-phone-number-input/style.css";
+import PhoneInput, {
+  Country,
+  isPossiblePhoneNumber,
+} from "react-phone-number-input";
+import { useNavigate } from "react-router";
 
 const Reservation = () => {
   const [value, setValue] = useState<Dayjs | null>(dayjs());
   const [person, setPerson] = useState("1");
+  const [message, setMessage] = useState("");
+  const [phone, setPhone] = useState("");
+  const [selectedCountry, setSelectedCountry] = useState<Country | undefined>(
+    undefined
+  );
 
   // get user from store
   const { user } = useSelector((state: RootState) => state.user);
 
   //get Reserve Table Functionality from firebaseStorage
   const { reserveTable } = firebaseStorage();
+  const navigate = useNavigate()
 
   console.log(user);
+
+  function handleOnChangePhone(value: string | undefined) {
+    if (value) {
+      setPhone(value);
+    }
+  }
+
+  function handleOnCountryChange(country: Country | undefined) {
+    setSelectedCountry(country);
+  }
 
   // disable past dates
   const disablePastDates = (date: Dayjs) => {
@@ -48,15 +72,45 @@ const Reservation = () => {
   const handleReservation = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    // phone number checking
+    if (phone === "" || phone === undefined) {
+      alert("Phone number is required!");
+      return;
+    }
+
+    // checking the validity
+    if (!(phone && isPossiblePhoneNumber(phone))) {
+      alert(`phone number is not validate`);
+      return;
+    }
+
     // get Data
     const reserveData = {
       date: `${value?.date()}/${value!.month() + 1}/${value?.year()}`,
       time: `${value?.format("hh:mm A")}`,
       name: user.displayName,
       email: user.email,
+      phone,
+      person,
+      message,
     };
 
+    // send data to firebase
     reserveTable(reserveData);
+
+    // after successfully added to cart, show a success message
+    // show the successs message
+    Swal.fire({
+      icon: "success",
+      title: "Your reservation added!",
+    });
+
+    // clear message and set default person
+    setMessage("");
+    setPerson("1");
+
+    // navigate to my reservation
+    navigate("/myreservation");
   };
 
   // When  i come to this page, it will show from the top
@@ -134,6 +188,21 @@ const Reservation = () => {
                     </FormControl>
                   </div>
 
+                  {/* mobile number */}
+                  <div className="mobile-number">
+                    <label htmlFor="mobile">Mobile Number</label>
+                    <PhoneInput
+                      id="mobile"
+                      placeholder="Enter phone number"
+                      defaultCountry="BD"
+                      international
+                      countryCallingCodeEditable={false}
+                      value={phone}
+                      onChange={handleOnChangePhone}
+                      onCountryChange={handleOnCountryChange}
+                    />
+                  </div>
+
                   {/* Comments */}
                   <TextField
                     label="Comments"
@@ -141,6 +210,8 @@ const Reservation = () => {
                     variant="standard"
                     type="text"
                     name="comments"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
                     multiline
                     rows={4}
                     fullWidth

@@ -14,6 +14,8 @@ import facebookIcon from "../../assets/images/icons/facebook.svg";
 import googleIcon from "../../assets/images/icons/google.svg";
 import firebaseAuth from "../../firebase/firebaseAuth";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/store/store";
 // ES6 Modules or TypeScript
 import Swal from "sweetalert2";
 
@@ -26,6 +28,8 @@ const Login = () => {
   const { logInUser, googleLogin, facebookLogin } = firebaseAuth();
   const navigate = useNavigate();
   const location = useLocation();
+  // Get user from store
+  const { user } = useSelector((state: RootState) => state.user);
 
   // handle change functionality
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -128,6 +132,7 @@ const Login = () => {
                   type="submit"
                   className="main-btn"
                   fullWidth
+                  disabled={!!user.email}
                 >
                   Login
                 </Button>
@@ -143,6 +148,7 @@ const Login = () => {
                   type="submit"
                   fullWidth
                   onClick={googleLogin}
+                  disabled={!!user.email}
                 >
                   <span>
                     <img src={googleIcon} alt="google-icon" />{" "}
@@ -154,6 +160,7 @@ const Login = () => {
                   type="submit"
                   fullWidth
                   onClick={facebookLogin}
+                  disabled={!!user.email}
                 >
                   <span>
                     <img src={facebookIcon} alt="facebook-icon" />

@@ -44,6 +44,8 @@ const firebaseAuth = () => {
             photoURL: user.photoURL,
           })
         );
+      } else {
+        dispatch(getUser({}));
       }
       // setLoading(false);
     });

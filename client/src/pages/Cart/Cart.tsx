@@ -208,7 +208,7 @@ const Cart = () => {
       <SectionTop title="Cart" />
       <Container>
         <TableContainer>
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <Table sx={{ minWidth: 650 }}>
             {cartList.length > 0 && (
               <TableHead>
                 <TableRow>
@@ -327,7 +327,8 @@ const Cart = () => {
                 <Button
                   variant="contained"
                   type="submit"
-                  className="main-btn"
+                  size="medium"
+                  className="main-btn checkout-btn"
                   fullWidth
                   endIcon={<KeyboardTabOutlinedIcon />}
                   onClick={() => navigate("/delivery")}

@@ -38,3 +38,13 @@ svg.MuiSvgIcon-root.MuiSvgIcon-colorAction {
   background: var(--main-color);
   color: #fff;
 }
+
+#mobile-menu-btn {
+  color: black;
+}
+#mobile-menu-btn svg {
+  font-size: 30px;
+}
+.menu-cart-mobile-icon {
+  margin-right: 1.85em;
+}
