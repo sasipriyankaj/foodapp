@@ -1,15 +1,33 @@
+// import important modules
+import { useState, useRef } from "react";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import ReviewData from "../../assets/data/ReviewData";
 import Rating from "@mui/material/Rating";
 import "./Reviews.css";
-
 import Grid from "@mui/material/Grid";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import { Navigation, Autoplay } from "swiper";
 // Import Swiper styles
 import "swiper/css";
+import "swiper/swiper-bundle.css";
+
+// Breakpoints of slider
+const breakPoints = {
+  // when window width is >= 480px
+  480: {
+    slidesPerView: 1,
+  },
+  // when window width is >= 768px
+  768: {
+    slidesPerView: 2,
+  },
+  // when window width is >= 992px
+  992: {
+    slidesPerView: 2,
+  },
+};
 
 const Reviews = () => {
   return (
@@ -28,10 +46,17 @@ const Reviews = () => {
         {/* Swiper Grid */}
         <Swiper
           spaceBetween={50}
-          slidesPerView={3}
-          onSlideChange={() => console.log("slide change")}
-          onSwiper={(swiper) => console.log(swiper)}
-          className="reviewer-slide"
+          slidesPerView={2}
+          className="reviewer-slide mySwiper"
+          navigation={true}
+          modules={[Navigation, Autoplay]}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
+          loop={true}
+          breakpoints={breakPoints}
         >
           {ReviewData.map((review) => {
             return (
@@ -45,11 +70,17 @@ const Reviews = () => {
                       size="large"
                       readOnly
                     />
-                    <Typography variant="body1" className="review-desc"> {review.desc} </Typography>
+                    <Typography variant="body1" className="review-desc">
+                      {" "}
+                      {review.desc}{" "}
+                    </Typography>
                   </div>
                   <div className="reviewer-info">
                     <img src={review.img} alt="reviewer" />
-                    <Typography variant="body1" className="reviewer-name"> {review.name} </Typography>
+                    <Typography variant="body1" className="reviewer-name">
+                      {" "}
+                      {review.name}{" "}
+                    </Typography>
                   </div>
                 </div>
               </SwiperSlide>

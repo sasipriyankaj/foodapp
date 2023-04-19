@@ -2,6 +2,9 @@
 .review-section {
   padding: 15em 0;
 }
+.review-section .MuiContainer-root {
+  position: relative !important;
+}
 .review-section h2 {
   font-size: 4rem;
   letter-spacing: -0.1rem;
@@ -10,10 +13,10 @@
   margin-bottom: 1.5rem;
 }
 .review-section .review-section-desc {
-  font-size: 1.6rem;
+  font-size: 1.7rem;
 }
 .review-section .review-desc {
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   margin-top: 1rem;
 }
 .reviewer-slide {
@@ -63,4 +66,57 @@
 .swiper-slide {
   height: auto !important;
   display: flex !important;
+}
+
+.reviewer-slide.mySwiper {
+  position: static;
+}
+
+/* swiper button */
+.swiper-button-prev {
+  position: absolute !important;
+  top: 6em !important;
+  right: 13em !important;
+  left: auto !important;
+  background: var(--main-color);
+  color: #fff !important;
+  padding: 3em;
+  border: 4px solid var(--main-color);
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+}
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 3rem !important;
+  font-weight: 600;
+}
+.swiper-button-next {
+  position: absolute !important;
+  top: 6em !important;
+  right: 5em !important ;
+  background: var(--main-color);
+  color: #fff !important;
+  padding: 3em;
+  border: 4px solid var(--main-color);
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background: #fff;
+  color: var(--main-color) !important;
+}
+/* Extra small devices (phones, 992px and down) */
+@media only screen and (max-width: 992px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none !important;
+  }
 }
