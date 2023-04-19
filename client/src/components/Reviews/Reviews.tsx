@@ -15,15 +15,18 @@ import "swiper/swiper-bundle.css";
 
 // Breakpoints of slider
 const breakPoints = {
-  // when window width is >= 480px
+  320: {
+    slidesPerView: 1,
+  },
+  360: {
+    slidesPerView: 1,
+  },
   480: {
     slidesPerView: 1,
   },
-  // when window width is >= 768px
   768: {
     slidesPerView: 2,
   },
-  // when window width is >= 992px
   992: {
     slidesPerView: 2,
   },
