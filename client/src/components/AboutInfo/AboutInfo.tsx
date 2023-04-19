@@ -1,8 +1,8 @@
+// import important modules
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import aboutImage from "../../assets/images/about_info_image.jpg";
-
 import "./AboutInfo.css";
 
 const AboutInfo = () => {
@@ -21,7 +21,7 @@ const AboutInfo = () => {
                 <Typography variant="h2" className="number-cursive">
                   10
                 </Typography>
-                <Typography variant="body1"> Years Experience</Typography>
+                <Typography variant="body1"> Years of Experience</Typography>
               </div>
             </div>
           </Grid>
