@@ -1,4 +1,4 @@
-import "./MainMenuSection.css";
+// import important modules
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import SingleMenuItem from "./SingleMenuItem";
@@ -8,8 +8,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchMenu } from "../../redux/features/menuSlice";
 import type { AppDispatch, RootState } from "../../redux/store/store";
 import loadingImg from "../../assets/images/loading.gif";
+import "./MainMenuSection.css";
 
-// Interface type for menu
+// Interface =  type for menu
 export interface MenuType {
   id: string;
   title: string;
@@ -21,11 +22,10 @@ export interface MenuType {
 }
 
 const MainMenuSection = () => {
-  // get menu from the store
+  // get menu and loading from the store
   const menuData: MenuType[] = useSelector(
     (state: RootState) => state.menu.menu
   ) as MenuType[];
-
   const isLoading = useSelector((state: RootState) => state.menu.loading);
 
   // get all categories from the Menu Data
@@ -41,7 +41,7 @@ const MainMenuSection = () => {
   // dispatch function
   const dispatch: AppDispatch = useDispatch();
 
-  // when the is loading false, the menu item will get the menuData. initially it is not come because of async behavior
+  // when isLoading is false, the menu item will get the menuData. initially it is not come because of async behavior
   useEffect(() => {
     if (!isLoading) {
       setMenuItems(menuData);

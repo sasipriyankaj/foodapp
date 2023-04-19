@@ -20,7 +20,9 @@ type SingleMenuItemProps = {
 };
 
 const SingleMenuItem = ({ data }: SingleMenuItemProps) => {
+  // get cart from store
   const cart = useSelector((state: RootState) => state.menu.cart) as CartItem[];
+  // get dispatch function
   const dispatch = useDispatch();
 
   // add to Cart functionality
@@ -67,7 +69,7 @@ const SingleMenuItem = ({ data }: SingleMenuItemProps) => {
   };
 
   return (
-    <Grid item md={4}>
+    <Grid item md={6} lg={4}>
       <Card className="single-card neumorphic" sx={{ height: "100%" }}>
         <CardMedia component="img" image={data.img} title={data.title} />
         <CardContent>

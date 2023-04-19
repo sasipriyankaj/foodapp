@@ -69,3 +69,10 @@ img {
 .swal2-container.swal2-center > .swal2-popup {
   width: 50%;
 }
+
+/* Extra small devices (phones, 900px and down) */
+@media only screen and (max-width: 900px) {
+  .swal2-container.swal2-center > .swal2-popup {
+    width: 90%;
+  }
+}
