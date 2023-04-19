@@ -1,3 +1,4 @@
+// import important module
 import "./AboutFeatures.css";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
@@ -11,10 +12,14 @@ const AboutFeatures = () => {
         <Grid container spacing={7}>
           {AboutFeaturesData.map((data) => {
             return (
-              <Grid item key={data.id} md={4}>
+              <Grid item key={data.id} md={6} lg={4}>
                 <Grid container spacing={1}>
                   <Grid item xs={3} className="feature-left">
-                    <Typography variant="h2" className="number-cursive">
+                    <Typography
+                      variant="h2"
+                      className="number-cursive"
+                      sx={{ textAlign: "center" }}
+                    >
                       {data.itemNumber}
                     </Typography>
                   </Grid>
