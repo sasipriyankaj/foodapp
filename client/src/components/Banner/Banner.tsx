@@ -1,14 +1,20 @@
+// import important modules
 import "./Banner.css";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import RestaurantMenuOutlinedIcon from "@mui/icons-material/RestaurantMenuOutlined";
+// images of the banner
 import img1 from "../../assets/images/banner/bannerimg1.png";
 import img2 from "../../assets/images/banner/bannerimg2.png";
 import img3 from "../../assets/images/banner/bannerimg3.png";
+import { useNavigate } from "react-router-dom";
 
 const Banner = () => {
+  // get navigate from useNavigate
+  const navigate = useNavigate();
+
   return (
     <section className="banner">
       <Container>
@@ -29,6 +35,7 @@ const Banner = () => {
                 size="large"
                 endIcon={<RestaurantMenuOutlinedIcon />}
                 className="main-btn"
+                onClick={() => navigate("/menu")}
               >
                 Our Menu
               </Button>
