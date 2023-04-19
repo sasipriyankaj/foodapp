@@ -284,22 +284,26 @@ const Navbar = () => {
                   }}
                   className="menu-cart-mobile-icon"
                 >
-                  <Badge badgeContent={cart.length}>
-                    <ShoppingCartIcon color="action" />
-                  </Badge>
+                  <Tooltip title="cart">
+                    <Badge badgeContent={cart.length}>
+                      <ShoppingCartIcon color="action" />
+                    </Badge>
+                  </Tooltip>
                 </NavLink>
               )}
               {matches && (
-                <IconButton
-                  size="large"
-                  edge="start"
-                  color="inherit"
-                  aria-label="menu"
-                  onClick={handleDrawerToggle}
-                  id="mobile-menu-btn"
-                >
-                  <MenuIcon />
-                </IconButton>
+                <Tooltip title="Menu">
+                  <IconButton
+                    size="large"
+                    edge="start"
+                    color="inherit"
+                    aria-label="menu"
+                    onClick={handleDrawerToggle}
+                    id="mobile-menu-btn"
+                  >
+                    <MenuIcon />
+                  </IconButton>
+                </Tooltip>
               )}
 
               {/* if the width is less than 900px and user's photo exist, it will show avatar of user's image */}
