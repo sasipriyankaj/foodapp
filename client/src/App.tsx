@@ -5,6 +5,7 @@ import MainTemplate from "./components/MainTemplate/MainTemplate";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import About from "./pages/About/About";
 import Cart from "./pages/Cart/Cart";
+import Delivered from "./pages/Delivered/Delivered";
 import Delivery from "./pages/Delivery/Delivery";
 import ErrorPayment from "./pages/ErrorPayment/ErrorPayment";
 import Home from "./pages/Home/Home";
@@ -49,6 +50,7 @@ function App() {
           }
         />
         <Route path="/register" element={<Register />} />
+        <Route path="/delivered" element={<Delivered />} />
         <Route path="/delivery" element={<Delivery />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/cancel" element={<ErrorPayment />} />

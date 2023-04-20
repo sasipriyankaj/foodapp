@@ -12,6 +12,7 @@ interface MenuState {
   menu: object[];
   loading: boolean;
   cart: object[];
+  isCouponApplied: boolean;
 }
 
 export interface CartItem {
@@ -28,6 +29,7 @@ const initialState: MenuState = {
   menu: [],
   loading: false,
   cart: [],
+  isCouponApplied: false,
 };
 
 export const menuSlice = createSlice({
@@ -42,6 +44,12 @@ export const menuSlice = createSlice({
     },
     clearCart: (state) => {
       state.cart = [];
+    },
+    couponApply: (state, action) => {
+      state.isCouponApplied = action.payload;
+    },
+    couponRemove: (state, action) => {
+      state.isCouponApplied = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -59,6 +67,7 @@ export const menuSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { addToCart, updateCart, clearCart } = menuSlice.actions;
+export const { addToCart, updateCart, clearCart, couponApply, couponRemove } =
+  menuSlice.actions;
 
 export default menuSlice.reducer;

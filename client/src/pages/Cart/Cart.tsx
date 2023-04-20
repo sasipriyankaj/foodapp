@@ -1,5 +1,4 @@
 import { useState, useEffect, MouseEvent, ChangeEvent } from "react";
-import "./Cart.css";
 import Container from "@mui/material/Container";
 import SectionTop from "../../components/SectionTop/SectionTop";
 import Table from "@mui/material/Table";
@@ -8,7 +7,13 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableRow from "@mui/material/TableRow";
 import { useDispatch, useSelector } from "react-redux";
-import { CartItem, updateCart } from "../../redux/features/menuSlice";
+import {
+  CartItem,
+  updateCart,
+  couponApply,
+  clearCart,
+  couponRemove,
+} from "../../redux/features/menuSlice";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import type { AppDispatch, RootState } from "../../redux/store/store";
@@ -23,13 +28,18 @@ import RestaurantMenuOutlinedIcon from "@mui/icons-material/RestaurantMenuOutlin
 // ES6 Modules or TypeScript
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router";
+import "./Cart.css";
 
 const Cart = () => {
-  // get cart from store
+  // get cart and coupon functionality from store
   const cart: CartItem[] = useSelector(
     (state: RootState) => state.menu.cart
   ) as CartItem[];
+  const couponState = useSelector(
+    (state: RootState) => state.menu.isCouponApplied
+  );
 
+  // get navigate from react router
   const navigate = useNavigate();
 
   // dispatch function
@@ -41,31 +51,42 @@ const Cart = () => {
   const [shipAmount, setShipAmount] = useState(5);
   const [subTotal, setSubTotal] = useState(0);
   const [total, setTotal] = useState<number>(0);
+  const [isCouponApplied, setIsCouponApplied] = useState(false);
 
   // get subTotal of cart
   const getSubTotal = () => {
-    setSubTotal(() => {
-      let total: number = 0;
-      cartList.forEach((cart) => {
-        total += cart.quantity * cart.price;
+    if (couponState) {
+      setSubTotal(0);
+    } else {
+      setSubTotal(() => {
+        let total: number = 0;
+        cartList.forEach((cart) => {
+          total += cart.quantity * cart.price;
+        });
+        return total;
       });
-      return total;
-    });
+    }
   };
+
+  console.log(coupon.length);
 
   // get Total
   const getTotal = () => {
-    let subAmount: number = subTotal;
-    let deliveryCharge: number = shipAmount;
-    let totalAmount: number = subAmount + deliveryCharge;
-    setTotal(totalAmount);
+    if (couponState) {
+      setTotal(0);
+    } else {
+      let subAmount: number = subTotal;
+      let deliveryCharge: number = shipAmount;
+      let totalAmount: number = subAmount + deliveryCharge;
+      setTotal(totalAmount);
+    }
   };
 
   // show the total when the page load, and according to some state
   useEffect(() => {
     getSubTotal();
     getTotal();
-  }, [cartList, subTotal, shipAmount]);
+  }, [cartList, subTotal, shipAmount, coupon]);
 
   // When  i come to this page, it will show from the top
   useEffect(() => {
@@ -182,6 +203,38 @@ const Cart = () => {
     });
   };
 
+  // handle Coupon
+  const handleCoupon = (event: MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+
+    if (coupon === "") {
+      // show the error message
+      Swal.fire({
+        icon: "error",
+        title: "Something Wrong!",
+        text: `You didn't put any Code!`,
+      });
+    } else if (coupon === "treat") {
+      setShipAmount(0);
+      setIsCouponApplied(true);
+      dispatch(couponApply(true));
+      // show the successs message
+      Swal.fire({
+        icon: "success",
+        title: "Coupon Applied!",
+        text: `Enjoy our delicious food items without any cost to you!`,
+      });
+      setCoupon("");
+    } else {
+      // show the error message
+      Swal.fire({
+        icon: "error",
+        title: "Something Wrong!",
+        text: `This is not a valid coupon code`,
+      });
+    }
+  };
+
   // if cart list is empty, show empty cart icon with text
   if (cartList.length === 0) {
     return (
@@ -195,6 +248,8 @@ const Cart = () => {
             size="medium"
             className="main-btn back-to-menu"
             endIcon={<RestaurantMenuOutlinedIcon />}
+            onClick={() => navigate("/menu")}
+            style={{ fontSize: "1.7rem" }}
           >
             Back to menu
           </Button>
@@ -202,6 +257,19 @@ const Cart = () => {
       </>
     );
   }
+
+  // handle continue btn
+  const handleContinueBtn = (event: MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    // checking if the coupon applied or not
+    if (couponState) {
+      dispatch(clearCart());
+      dispatch(couponRemove(false));
+      navigate("/delivered");
+    } else {
+      navigate("/delivery");
+    }
+  };
 
   return (
     <section className="cart-section">
@@ -257,6 +325,7 @@ const Cart = () => {
                           inputProps={{
                             min: 1,
                           }}
+                          className="quantity-input"
                         />
                         {/* increase quantity */}
                         <Button
@@ -291,26 +360,30 @@ const Cart = () => {
 
         {cartList.length > 0 && (
           <Grid container spacing={4} className="coupon-total-container">
-            <Grid item md={7}>
+            <Grid item xs={12} md={7}>
               <div className="coupon-container">
                 <TextField
                   type="text"
-                  name="coupon"
                   onChange={(e) => setCoupon(e.target.value)}
                   value={coupon}
                   placeholder="Enter Coupon Code"
                   className="coupon-input"
+                  InputProps={{
+                    readOnly: couponState && true,
+                  }}
                 />
                 <Button
                   variant="contained"
                   size="medium"
                   className="main-btn coupon-btn"
+                  onClick={handleCoupon}
+                  disabled={couponState && true}
                 >
                   Apply coupon
                 </Button>
               </div>
             </Grid>
-            <Grid item md={5}>
+            <Grid item xs={12} md={5} className="total-container-right">
               <div className="total-container">
                 <div className="subtotal-container">
                   <p> Subtotal </p>
@@ -331,7 +404,7 @@ const Cart = () => {
                   className="main-btn checkout-btn"
                   fullWidth
                   endIcon={<KeyboardTabOutlinedIcon />}
-                  onClick={() => navigate("/delivery")}
+                  onClick={handleContinueBtn}
                 >
                   Continue
                 </Button>
