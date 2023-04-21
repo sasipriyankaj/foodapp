@@ -18,6 +18,7 @@
     "@reduxjs/toolkit": "^1.9.3",
     "@stripe/react-stripe-js": "^1.16.5",
     "@stripe/stripe-js": "^1.48.0",
+    "aos": "^2.3.4",
     "dayjs": "^1.11.7",
     "firebase": "^9.17.1",
     "react": "^18.2.0",
@@ -33,6 +34,7 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
+    "@types/aos": "^3.0.4",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@types/uuid": "^9.0.1",

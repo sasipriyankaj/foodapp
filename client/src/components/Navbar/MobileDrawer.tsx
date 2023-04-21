@@ -76,39 +76,41 @@ const MobileDrawer = ({ mobileOpen, setMobileOpen }: MobileDrawerDataType) => {
       {/* List of  Different options */}
       <List sx={{ mt: 3 }}>
         {/* account -info */}
-        <div className="account-info">
-          <div className="account-img">
-            {user.photoURL ? (
-              <Avatar
-                sx={{
-                  width: 45,
-                  height: 45,
-                }}
-                src={user.photoURL}
-                alt="user-image"
-              >
-                {user.displayName && user.displayName.slice(0, 1)}
-              </Avatar>
-            ) : (
-              <Avatar
-                sx={{
-                  width: 45,
-                  height: 45,
-                  background: "#f91943",
-                  fontWeight: "700",
-                  textTransform: "uppercase",
-                  fontSize: "1.6rem",
-                }}
-              >
-                {user.displayName && user.displayName.slice(0, 1)}
-              </Avatar>
-            )}
+        {user && user.email && (
+          <div className="account-info">
+            <div className="account-img">
+              {user.photoURL ? (
+                <Avatar
+                  sx={{
+                    width: 45,
+                    height: 45,
+                  }}
+                  src={user.photoURL}
+                  alt="user-image"
+                >
+                  {user.displayName && user.displayName.slice(0, 1)}
+                </Avatar>
+              ) : (
+                <Avatar
+                  sx={{
+                    width: 45,
+                    height: 45,
+                    background: "#f91943",
+                    fontWeight: "700",
+                    textTransform: "uppercase",
+                    fontSize: "1.6rem",
+                  }}
+                >
+                  {user.displayName && user.displayName.slice(0, 1)}
+                </Avatar>
+              )}
+            </div>
+            <div className="account-desc">
+              <h4> {user.displayName} </h4>
+              <p> {user.email} </p>
+            </div>
           </div>
-          <div className="account-desc">
-            <h4> {user.displayName} </h4>
-            <p> {user.email} </p>
-          </div>
-        </div>
+        )}
         <Divider />
 
         {/* Home  */}

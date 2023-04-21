@@ -27,7 +27,6 @@ const MyReservation = () => {
   // important states
   const [reservationList, setReservationList] = useState<ReservationData[]>([]);
   const [loading, setLoading] = useState(false);
-  console.log(reservationList);
 
   // Get user from store
   const { user } = useSelector((state: RootState) => state.user);
@@ -43,7 +42,7 @@ const MyReservation = () => {
   const getMyReservations = async () => {
     setLoading(true);
     const myReservation: ReservationData[] = await getReservation(user.email);
-    console.log(myReservation);
+
     setReservationList(myReservation);
     setLoading(false);
   };
@@ -95,7 +94,7 @@ const MyReservation = () => {
     return (
       <>
         <SectionTop title="My Reservation" />
-        <div className="empty-cart-container">
+        <div className="empty-cart-container" data-aos="zoom-in">
           <div>
             <img src={emptyCart} alt="empty-cart" />
             <p> You don't have any existing reservation. </p>
@@ -118,7 +117,7 @@ const MyReservation = () => {
     <section className="my-reservation-section">
       <SectionTop title="My Reservation" />
       <Container>
-        <TableContainer>
+        <TableContainer data-aos="zoom-in-down">
           <Table>
             <TableHead>
               <TableRow>

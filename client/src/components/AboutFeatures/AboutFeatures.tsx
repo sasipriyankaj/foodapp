@@ -12,7 +12,14 @@ const AboutFeatures = () => {
         <Grid container spacing={7}>
           {AboutFeaturesData.map((data) => {
             return (
-              <Grid item key={data.id} md={6} lg={4}>
+              <Grid
+                item
+                key={data.id}
+                md={6}
+                lg={4}
+                sx={{ mt: 4 }}
+                data-aos="zoom-in"
+              >
                 <Grid container spacing={1}>
                   <Grid item xs={3} className="feature-left">
                     <Typography

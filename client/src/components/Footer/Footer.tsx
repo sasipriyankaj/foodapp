@@ -26,10 +26,10 @@ const Footer = () => {
               <a href="https://www.facebook.com/joydey99" target="_blank">
                 <FacebookIcon />
               </a>
-              <a href="#" target="_blank">
+              <a href="https://twitter.com/joydeydev" target="_blank">
                 <TwitterIcon />
               </a>
-              <a href="#" target="_blank">
+              <a href="https://www.linkedin.com/in/joydey-99/" target="_blank">
                 <LinkedInIcon />
               </a>
             </div>

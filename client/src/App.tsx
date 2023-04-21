@@ -15,8 +15,15 @@ import MyOrder from "./pages/MyOrder/MyOrder";
 import MyReservation from "./pages/MyReservation/MyReservation";
 import Register from "./pages/Register/Register";
 import Reservation from "./pages/Reservation/Reservation";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function App() {
+  // Animation
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
+
   return (
     <MainTemplate>
       <Routes>

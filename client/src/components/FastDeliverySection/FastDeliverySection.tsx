@@ -17,7 +17,7 @@ const FastDeliverySection = () => {
       <Container>
         <Grid container spacing={4}>
           <Grid item md={6} className="fast-delivery-left">
-            <div className="content">
+            <div className="content" data-aos="zoom-in">
               <Typography variant="h2">Fast delivery service. </Typography>
               <Typography variant="body1">
                 Enjoy the convenience of fast delivery with our restaurant's
@@ -37,8 +37,13 @@ const FastDeliverySection = () => {
             </div>
           </Grid>
           <Grid item md={6}>
-            <div className="fast-delivery-right">
+            <div className="fast-delivery-right" data-aos="zoom-in">
               <img src={fastDeliveryImage} alt="fast-delivery-image" />
+              <div className="delivery-circle-1"></div>
+              <div className="delivery-circle-2"></div>
+              <div className="delivery-circle-3"></div>
+              <div className="delivery-circle-4"></div>
+              <div className="delivery-circle-5"></div>
             </div>
           </Grid>
         </Grid>

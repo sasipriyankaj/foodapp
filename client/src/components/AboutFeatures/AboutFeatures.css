@@ -1,4 +1,7 @@
 /* About Features CSS */
+.about-features {
+  padding: 0 0 10em;
+}
 .feature-left .number-cursive {
   font-size: 4.2rem;
   color: var(--main-color);

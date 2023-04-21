@@ -1,8 +1,10 @@
 /* Fast Delivery CSS */
 .fast-delivery-section {
-  padding: 8em 0 10em;
+  padding: 10em 0;
 }
 .fast-delivery-left {
+  position: relative;
+  z-index: 10;
   display: flex;
   align-items: center;
 }
@@ -23,6 +25,7 @@
 .fast-delivery-right {
   position: relative;
   padding-bottom: 50%;
+  z-index: -1;
 }
 .fast-delivery-right img {
   position: absolute;
@@ -34,6 +37,65 @@
   right: 0;
   z-index: -1;
 }
+
+.delivery-circle-1 {
+  position: absolute;
+  height: 110px;
+  width: 110px;
+  border-radius: 50%;
+  border: solid 25px #fff;
+  left: -3%;
+  bottom: 10%;
+  box-shadow: inset 0 3px 6px 0 rgba(0, 0, 0, 0.09),
+    0 3px 6px 0 rgba(0, 0, 0, 0.09);
+  animation: anima3 3s 1s infinite ease-in-out;
+}
+.delivery-circle-2 {
+  position: absolute;
+  bottom: 50%;
+  right: 0;
+  width: 35px;
+  height: 35px;
+  background-color: var(--main-color);
+  border-radius: 50%;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.09);
+  animation: anima1 2s 2s infinite ease-in-out;
+}
+.delivery-circle-3 {
+  position: absolute;
+  top: 20%;
+  left: 45%;
+  width: 25px;
+  height: 25px;
+  background-color: #f5c332;
+  border-radius: 50%;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.09);
+  animation: anima1 3s 3s infinite ease-in-out;
+}
+.delivery-circle-4 {
+  position: absolute;
+  top: 5%;
+  left: 15%;
+  width: 30px;
+  height: 30px;
+  background-color: var(--main-color);
+  border-radius: 50%;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.09);
+  animation: anima1 3s 4s infinite ease-in-out;
+}
+.delivery-circle-5 {
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: solid 10px #fff;
+  right: 33%;
+  bottom: 0;
+  box-shadow: inset 0 3px 6px 0 rgba(0, 0, 0, 0.09),
+    0 3px 6px 0 rgba(0, 0, 0, 0.09);
+  animation: anima3 3s 1s infinite ease-in-out;
+}
+
 /* Extra small devices (phones, 900px and down) */
 @media only screen and (max-width: 900px) {
   .fast-delivery-section {

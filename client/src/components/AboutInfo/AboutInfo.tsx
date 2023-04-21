@@ -10,13 +10,17 @@ const AboutInfo = () => {
     <section className="about-info">
       <Container>
         <Grid container spacing={2}>
-          <Grid item md={6} className="about-info-left">
+          <Grid item md={6} className="about-info-left" data-aos="fade-up">
             <div className="about-info-left-content">
               <img
                 src={aboutImage}
                 alt="about-info-image"
                 className="main-img"
               />
+              <div className="mc-about-circle-1"></div>
+              <div className="mc-about-circle-2"></div>
+              <div className="mc-about-circle-3"></div>
+              <div className="mc-about-circle-4"></div>
               <div className="experience">
                 <Typography variant="h2" className="number-cursive">
                   10
@@ -25,7 +29,7 @@ const AboutInfo = () => {
               </div>
             </div>
           </Grid>
-          <Grid item md={6} className="about-info-right">
+          <Grid item md={6} className="about-info-right" data-aos="fade-up">
             <div className="about-info-right-content">
               <Typography variant="h2">
                 We are doing more than you expect

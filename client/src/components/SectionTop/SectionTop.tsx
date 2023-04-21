@@ -9,7 +9,7 @@ type SectionTopProps = {
 
 const SectionTop = ({ title }: SectionTopProps) => {
   return (
-    <section className="section-top">
+    <section className="section-top" data-aos="fade-down">
       <Typography variant="h2">{title}</Typography>
       <Typography variant="body1">
         {" "}

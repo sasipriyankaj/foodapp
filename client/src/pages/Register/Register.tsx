@@ -12,6 +12,7 @@ import logo from "../../assets/images/logo.png";
 import firebaseAuth from "../../firebase/firebaseAuth";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store/store";
+import { useLocation } from "react-router-dom";
 // ES6 Modules or TypeScript
 import Swal from "sweetalert2";
 
@@ -28,6 +29,7 @@ const Register = () => {
 
   // get user from store
   const { user } = useSelector((state: RootState) => state.user);
+  const location = useLocation();
 
   // Handle input change function
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -49,8 +51,16 @@ const Register = () => {
       return;
     }
 
+    // check if the state object contains a 'from' location
+    const { from = { pathname: "/" } } = location.state || {};
+
     // send the data to the firebase and create a new user
-    registerUser(newUserData.name, newUserData.email, newUserData.password);
+    registerUser(
+      newUserData.name,
+      newUserData.email,
+      newUserData.password,
+      from
+    );
 
     // clear the input form
     setNewUserData({ name: "", email: "", password: "" });
@@ -64,7 +74,7 @@ const Register = () => {
   return (
     <section className="register-section">
       <Container>
-        <div className="register-content">
+        <div className="register-content"  data-aos="fade-up">
           <img src={logo} alt="logo" className="register-logo" />
           <Typography variant="h2" sx={{ textAlign: "center" }}>
             Register Now!!

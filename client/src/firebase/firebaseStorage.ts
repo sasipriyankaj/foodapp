@@ -104,7 +104,7 @@ const firebaseStorage = () => {
       (doc) => doc.data() as ReservationData
     );
 
-    console.log(myReservations);
+
 
     return myReservations;
   };

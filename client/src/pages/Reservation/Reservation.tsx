@@ -130,12 +130,17 @@ const Reservation = () => {
     <section className="reservation-section">
       <Container>
         <Grid container spacing={3}>
-          <Grid item md={6}>
+          <Grid item md={6} data-aos="fade-right">
             <div className="reservation-left">
               <img src={ReservationImg} alt="reservation-img" />
             </div>
           </Grid>
-          <Grid item md={6} className="reservation-right-container">
+          <Grid
+            item
+            md={6}
+            className="reservation-right-container"
+            data-aos="fade-left"
+          >
             <div className="reservation-right">
               <Typography variant="h2">Reservation</Typography>
               <Typography variant="body1">

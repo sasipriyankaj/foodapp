@@ -120,12 +120,12 @@ const Delivery = () => {
     <section className="delivery-section">
       <Container>
         <Grid container spacing={3}>
-          <Grid item md={6} className="delivery-left">
+          <Grid item md={6} className="delivery-left" data-aos="fade-right">
             <div>
               <img src={deliveryImg} alt="delivery-bike-gif" />
             </div>
           </Grid>
-          <Grid item md={6}>
+          <Grid item md={6} data-aos="fade-left">
             <div className="delivery-right">
               <Typography variant="h2"> Delivery Details</Typography>
               <Typography variant="body1" color="initial">

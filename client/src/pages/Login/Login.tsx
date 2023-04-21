@@ -10,7 +10,6 @@ import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from "@mui/icons-material/Lock";
 import loginImage from "../../assets/images/login.jpg";
 import NavLink from "../../components/NavLink/NavLink";
-import facebookIcon from "../../assets/images/icons/facebook.svg";
 import googleIcon from "../../assets/images/icons/google.svg";
 import firebaseAuth from "../../firebase/firebaseAuth";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -25,7 +24,7 @@ const Login = () => {
     email: "",
     password: "",
   });
-  const { logInUser, googleLogin, facebookLogin } = firebaseAuth();
+  const { logInUser, googleLogin } = firebaseAuth();
   const navigate = useNavigate();
   const location = useLocation();
   // Get user from store
@@ -53,10 +52,14 @@ const Login = () => {
         title: "Something Wrong!",
         text: "Password length must be at least six characters.",
       });
+      return;
     }
 
+    // check if the state object contains a 'from' location
+    const { from = { pathname: "/" } } = location.state || {};
+
     // send data to firebase and start the login process
-    logInUser(userLoginData.email, userLoginData.password);
+    logInUser(userLoginData.email, userLoginData.password, from);
 
     // clear the form
     setUserLoginData({
@@ -64,11 +67,8 @@ const Login = () => {
       password: "",
     });
 
-    // check if the state object contains a 'from' location
-    const { from = { pathname: "/" } } = location.state || {};
-
-    // redirect the user to the 'from' location if it exists, or to the default route otherwise
-    navigate(from ? from.pathname : "/", { replace: true });
+    // // redirect the user to the 'from' location if it exists, or to the default route otherwise
+    // navigate(from ? from.pathname : "/", { replace: true });
   };
 
   // When  i come to this page, it will show from the top
@@ -80,7 +80,7 @@ const Login = () => {
     <section className="login-section">
       <Container>
         <Grid container spacing={4}>
-          <Grid item md={6}>
+          <Grid item md={6} data-aos="fade-right">
             <div className="login-left-content">
               <Typography variant="h2">Login</Typography>
               <Typography variant="body1">
@@ -155,22 +155,10 @@ const Login = () => {
                   </span>
                   Continue with Google
                 </Button>
-                <Button
-                  variant="contained"
-                  type="submit"
-                  fullWidth
-                  onClick={facebookLogin}
-                  disabled={!!user.email}
-                >
-                  <span>
-                    <img src={facebookIcon} alt="facebook-icon" />
-                  </span>
-                  Continue with Facebook
-                </Button>
               </div>
             </div>
           </Grid>
-          <Grid item md={6}>
+          <Grid item md={6} data-aos="fade-left">
             <div className="login-right-content">
               <img src={loginImage} alt="login-image" />
             </div>

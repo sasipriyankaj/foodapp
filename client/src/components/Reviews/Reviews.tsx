@@ -36,7 +36,7 @@ const Reviews = () => {
   return (
     <section className="review-section">
       <Container>
-        <Grid container spacing={4}>
+        <Grid container spacing={4} data-aos="fade-right">
           <Grid item md={6}>
             <Typography variant="h2"> Reviews About Us</Typography>
             <Typography variant="body1" className="review-section-desc">

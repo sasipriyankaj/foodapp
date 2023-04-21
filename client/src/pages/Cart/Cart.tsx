@@ -238,7 +238,7 @@ const Cart = () => {
     return (
       <>
         <SectionTop title="Cart" />
-        <div className="empty-cart-container">
+        <div className="empty-cart-container" data-aos="zoom-in">
           <div>
             <img src={emptyCart} alt="empty-cart" />
             <p> No item added to the cart! </p>
@@ -275,7 +275,7 @@ const Cart = () => {
     <section className="cart-section">
       <SectionTop title="Cart" />
       <Container>
-        <TableContainer>
+        <TableContainer data-aos="zoom-in-down">
           <Table sx={{ minWidth: 650 }}>
             {cartList.length > 0 && (
               <TableHead>
@@ -359,7 +359,12 @@ const Cart = () => {
         </TableContainer>
 
         {cartList.length > 0 && (
-          <Grid container spacing={4} className="coupon-total-container">
+          <Grid
+            container
+            spacing={4}
+            className="coupon-total-container"
+            data-aos="fade-right"
+          >
             <Grid item xs={12} md={7}>
               <div className="coupon-container">
                 <TextField
@@ -384,7 +389,7 @@ const Cart = () => {
               </div>
             </Grid>
             <Grid item xs={12} md={5} className="total-container-right">
-              <div className="total-container">
+              <div className="total-container" data-aos="fade-left">
                 <div className="subtotal-container">
                   <p> Subtotal </p>
                   <h4> ${subTotal.toFixed(2)} </h4>

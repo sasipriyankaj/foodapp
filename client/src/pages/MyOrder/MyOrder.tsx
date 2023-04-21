@@ -53,7 +53,6 @@ const MyOrder = () => {
     fetch("http://localhost:4000/myorder")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         if (data.phone) {
           setCurrentOrder(data);
           // set the order to firebase
@@ -88,7 +87,6 @@ const MyOrder = () => {
     getCurrentOrder();
     getAllOrder();
   }, [currentOrder]);
-  console.log(allOrder);
 
   // Delete Order function
   const deleteOrder = (id: string) => {
@@ -125,8 +123,8 @@ const MyOrder = () => {
   if (allOrder.length === 0) {
     return (
       <>
-        <SectionTop title="My Orders" />
-        <div className="empty-cart-container">
+        <SectionTop title="My Order" />
+        <div className="empty-cart-container" data-aos="zoom-in">
           <div>
             <img src={emptyCart} alt="empty-cart" />
             <p> You don't have any existing order. </p>
@@ -151,7 +149,7 @@ const MyOrder = () => {
       <Container>
         <Grid container spacing={1} className="order-container">
           {allOrder.map((order: MyOrderData) => (
-            <Grid item md={6} key={order.time}>
+            <Grid item md={6} key={order.time} data-aos="zoom-in">
               <Box className="card-container neumorphic">
                 <div className="top-info">
                   <h4 className="signature"> Purchase Details</h4>

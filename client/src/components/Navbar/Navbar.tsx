@@ -259,7 +259,10 @@ const Navbar = () => {
                           </div>
                         </div>
                         <Divider />
-                        <MenuItem onClick={handleClose} className="menu-item-desk">
+                        <MenuItem
+                          onClick={handleClose}
+                          className="menu-item-desk"
+                        >
                           <span
                             onClick={() => navigate("/myorder")}
                             style={{ fontSize: "16px" }}
@@ -341,40 +344,6 @@ const Navbar = () => {
                   >
                     <MenuIcon />
                   </IconButton>
-                </Tooltip>
-              )}
-
-              {/* if the width is less than 900px and user's photo exist, it will show avatar of user's image */}
-              {matches && user.photoURL && (
-                <Tooltip title={user.displayName}>
-                  <Avatar
-                    sx={{
-                      width: 35,
-                      height: 35,
-                    }}
-                    src={user.photoURL}
-                    alt="user-image"
-                  >
-                    {user.displayName && user.displayName.slice(0, 1)}
-                  </Avatar>
-                </Tooltip>
-              )}
-
-              {/* if the width is less than 900px and user's photo does not exist, Then it will show avatar of user's Name */}
-              {matches && user && user.displayName && !user.photoURL && (
-                <Tooltip title={user.displayName}>
-                  <Avatar
-                    sx={{
-                      width: 35,
-                      height: 35,
-                      background: "#f91943",
-                      fontWeight: "700",
-                      textTransform: "uppercase",
-                      fontSize: "1.6rem",
-                    }}
-                  >
-                    {user.displayName && user.displayName.slice(0, 1)}
-                  </Avatar>
                 </Tooltip>
               )}
             </Box>

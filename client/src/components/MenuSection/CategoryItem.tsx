@@ -13,7 +13,7 @@ const CategoryItem = ({
   menuIndex,
 }: CategoryItemProps) => {
   return (
-    <div className="category-button-group">
+    <div className="category-button-group" data-aos="zoom-in">
       {categories.map((category, index) => {
         return (
           <Button

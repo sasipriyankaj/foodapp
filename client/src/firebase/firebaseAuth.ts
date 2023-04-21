@@ -18,6 +18,15 @@ import { useNavigate, useLocation } from "react-router-dom";
 // ES6 Modules or TypeScript
 import Swal from "sweetalert2";
 
+// From type
+interface FromType {
+  hash: string;
+  key: string;
+  pathname: string;
+  search: string;
+  state: null;
+}
+
 // Initialize Firebase Authentication and get a reference to the service
 const app = firebaseInitialize();
 const auth = getAuth(app);
@@ -57,7 +66,8 @@ const firebaseAuth = () => {
   const registerUser = (
     name: string,
     email: string,
-    password: string | number
+    password: string | number,
+    from: FromType
   ) => {
     // loading start
     dispatch(loadingUser());
@@ -78,6 +88,9 @@ const firebaseAuth = () => {
                 title: "Registered successfully",
                 text: "You have successfully registered in our Website!",
               });
+
+              // redirect the user to the 'from' location if it exists, or to the default route otherwise
+              navigate(from ? from.pathname : "/", { replace: true });
             })
             .catch((error) => {
               console.log(error);
@@ -98,7 +111,11 @@ const firebaseAuth = () => {
   };
 
   // Log in User
-  const logInUser = (email: string, password: string | number) => {
+  const logInUser = (
+    email: string,
+    password: string | number,
+    from: FromType
+  ) => {
     signInWithEmailAndPassword(auth, email, password.toString())
       .then((userCredential) => {
         // Signed in
@@ -110,6 +127,9 @@ const firebaseAuth = () => {
           title: "Login Successful",
           text: "You successfully Logged in our Website!",
         });
+
+        // redirect the user to the 'from' location if it exists, or to the default route otherwise
+        navigate(from ? from.pathname : "/", { replace: true });
       })
       .catch((error) => {
         let errorMessage = error.message;
@@ -164,24 +184,6 @@ const firebaseAuth = () => {
       });
   };
 
-  // facebook login
-  const facebookLogin = () => {
-    signInWithPopup(auth, facebookProvider)
-      .then((result) => {
-        // The signed-in user info.
-        const user = result.user;
-        console.log(user);
-      })
-      .catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        const email = error.customData.email;
-        console.log(errorMessage);
-      });
-  };
-
   // log Out user
   const logOut = (): void => {
     signOut(auth)
@@ -200,7 +202,7 @@ const firebaseAuth = () => {
       });
   };
 
-  return { registerUser, logOut, logInUser, googleLogin, facebookLogin };
+  return { registerUser, logOut, logInUser, googleLogin };
 };
 
 export default firebaseAuth;

@@ -69,7 +69,7 @@ const SingleMenuItem = ({ data }: SingleMenuItemProps) => {
   };
 
   return (
-    <Grid item md={6} lg={4}>
+    <Grid item md={6} lg={4} data-aos="fade-up">
       <Card className="single-card neumorphic" sx={{ height: "100%" }}>
         <CardMedia component="img" image={data.img} title={data.title} />
         <CardContent>

@@ -20,7 +20,7 @@ const Banner = () => {
       <Container>
         <Grid container spacing={2}>
           <Grid item md={6} className="banner-left">
-            <div className="banner-left-content">
+            <div className="banner-left-content" data-aos="fade-right">
               <Typography variant="h2">
                 We do not cook, we create your emotions!
               </Typography>
@@ -41,11 +41,16 @@ const Banner = () => {
               </Button>
             </div>
           </Grid>
-          <Grid item md={6} className="banner-right">
+          <Grid item md={6} className="banner-right" data-aos="fade-left">
             <div className="banner-right-content">
               <img src={img1} alt="bannerimg1" className="img1" />
               <img src={img2} alt="bannerimg2" className="img2" />
               <img src={img3} alt="bannerimg3" className="img3" />
+              <div className="mc-circle-1"></div>
+              <div className="mc-circle-2"></div>
+              <div className="mc-circle-3"></div>
+              <div className="mc-circle-4"></div>
+              <div className="mc-circle-5"></div>
             </div>
           </Grid>
         </Grid>
