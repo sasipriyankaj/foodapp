@@ -21,6 +21,7 @@ import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router";
+import "./MyReservation.css";
 
 const MyReservation = () => {
   // important states
@@ -93,19 +94,21 @@ const MyReservation = () => {
   if (reservationList.length === 0) {
     return (
       <>
-        <SectionTop title="My Reservations" />
+        <SectionTop title="My Reservation" />
         <div className="empty-cart-container">
-          <img src={emptyCart} alt="empty-cart" />
-          <p> You don't have any existing reservation. </p>
-          <Button
-            variant="contained"
-            size="medium"
-            className="main-btn back-to-menu"
-            endIcon={<RestaurantMenuOutlinedIcon />}
-            onClick={() => navigate("/reservation")}
-          >
-            Back to Reservation
-          </Button>
+          <div>
+            <img src={emptyCart} alt="empty-cart" />
+            <p> You don't have any existing reservation. </p>
+            <Button
+              variant="contained"
+              size="medium"
+              className="main-btn back-to-menu"
+              endIcon={<RestaurantMenuOutlinedIcon />}
+              onClick={() => navigate("/reservation")}
+            >
+              Back to Reservation
+            </Button>
+          </div>
         </div>
       </>
     );

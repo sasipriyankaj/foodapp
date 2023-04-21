@@ -49,9 +49,16 @@ function App() {
             </PrivateRoute>
           }
         />
+        <Route
+          path="/delivery"
+          element={
+            <PrivateRoute path="/delivery">
+              <Delivery />
+            </PrivateRoute>
+          }
+        />
         <Route path="/register" element={<Register />} />
         <Route path="/delivered" element={<Delivered />} />
-        <Route path="/delivery" element={<Delivery />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/cancel" element={<ErrorPayment />} />
       </Routes>

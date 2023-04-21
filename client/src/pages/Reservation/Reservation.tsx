@@ -1,8 +1,8 @@
+// import important modules
 import { useState, FormEvent, useEffect } from "react";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import "./Reservation.css";
 import dayjs, { Dayjs } from "dayjs";
 import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
 import { LocalizationProvider } from "@mui/x-date-pickers";
@@ -15,8 +15,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import InputAdornment from "@mui/material/InputAdornment";
-import MessageIcon from "@mui/icons-material/Message";
-import ReservationImg from "../../assets/images/reservation.jpeg";
+import ReservationImg from "../../assets/images/reservation.gif";
 // ES6 Modules or TypeScript
 import Swal from "sweetalert2";
 import firebaseStorage from "../../firebase/firebaseStorage";
@@ -29,6 +28,7 @@ import PhoneInput, {
   isPossiblePhoneNumber,
 } from "react-phone-number-input";
 import { useNavigate } from "react-router";
+import "./Reservation.css";
 
 const Reservation = () => {
   const [value, setValue] = useState<Dayjs | null>(dayjs());
@@ -44,9 +44,7 @@ const Reservation = () => {
 
   //get Reserve Table Functionality from firebaseStorage
   const { reserveTable } = firebaseStorage();
-  const navigate = useNavigate()
-
-  console.log(user);
+  const navigate = useNavigate();
 
   function handleOnChangePhone(value: string | undefined) {
     if (value) {
@@ -74,13 +72,23 @@ const Reservation = () => {
 
     // phone number checking
     if (phone === "" || phone === undefined) {
-      alert("Phone number is required!");
+      // show the error message
+      Swal.fire({
+        icon: "error",
+        title: "Something Wrong!",
+        text: `Phone number is required!`,
+      });
       return;
     }
 
     // checking the validity
     if (!(phone && isPossiblePhoneNumber(phone))) {
-      alert(`phone number is not validate`);
+      // show the error message
+      Swal.fire({
+        icon: "error",
+        title: "Something Wrong!",
+        text: `The phone number is not valid!`,
+      });
       return;
     }
 
@@ -127,7 +135,7 @@ const Reservation = () => {
               <img src={ReservationImg} alt="reservation-img" />
             </div>
           </Grid>
-          <Grid item md={6}>
+          <Grid item md={6} className="reservation-right-container">
             <div className="reservation-right">
               <Typography variant="h2">Reservation</Typography>
               <Typography variant="body1">
@@ -206,14 +214,15 @@ const Reservation = () => {
                   {/* Comments */}
                   <TextField
                     label="Comments"
-                    placeholder="Comments"
+                    placeholder="You can add your query or addition information about reservation in this comment section"
+                    className="reservation-comment"
                     variant="standard"
                     type="text"
                     name="comments"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     multiline
-                    rows={4}
+                    rows={8}
                     fullWidth
                     InputProps={{
                       startAdornment: (
@@ -226,7 +235,7 @@ const Reservation = () => {
                 <Button
                   variant="contained"
                   type="submit"
-                  className="main-btn"
+                  className="main-btn checkout-btn"
                   fullWidth
                 >
                   Book a table

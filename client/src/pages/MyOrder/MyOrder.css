@@ -19,3 +19,13 @@
   border: 2px solid #ddd;
   height: 100%;
 }
+.card-container .top-info h4 {
+  font-size: 4rem;
+  color: var(--main-color);
+  margin-top: 1em;
+}
+.card-container .top-info p {
+  font-size: 1.7rem;
+  margin: 1em 0;
+  color: var(--main-black);
+}

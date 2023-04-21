@@ -1,3 +1,4 @@
+// import important modules
 import { useState, FormEvent, useEffect, ChangeEvent } from "react";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
@@ -16,8 +17,11 @@ import SignpostIcon from "@mui/icons-material/Signpost";
 import { useSelector } from "react-redux";
 import { CartItem } from "../../redux/features/menuSlice";
 import type { RootState } from "../../redux/store/store";
-import "./Delivery.css";
 import KeyboardTabOutlinedIcon from "@mui/icons-material/KeyboardTabOutlined";
+import deliveryImg from "../../assets/images/delivery-details.gif";
+// ES6 Modules or TypeScript
+import Swal from "sweetalert2";
+import "./Delivery.css";
 
 const Delivery = () => {
   const [phone, setPhone] = useState("");
@@ -52,13 +56,23 @@ const Delivery = () => {
 
     // phone number checking
     if (phone === "" || phone === undefined) {
-      alert("Phone number is required!");
+      // show the error message
+      Swal.fire({
+        icon: "error",
+        title: "Something Wrong!",
+        text: `Phone number is required!`,
+      });
       return;
     }
 
     // checking the validity
     if (!(phone && isPossiblePhoneNumber(phone))) {
-      alert(`phone number is not validate`);
+      // show the error message
+      Swal.fire({
+        icon: "error",
+        title: "Something Wrong!",
+        text: `The phone number is not valid!`,
+      });
       return;
     }
 
@@ -86,7 +100,6 @@ const Delivery = () => {
         if (response.url) {
           window.location.assign(response.url);
         }
-        console.log(response.cart);
       });
   };
 
@@ -103,20 +116,20 @@ const Delivery = () => {
     setDeliveryOptions({ ...deliveryOptions, [name]: value });
   };
 
-  console.log(deliveryOptions, phone, selectedCountry, user);
   return (
     <section className="delivery-section">
       <Container>
         <Grid container spacing={3}>
-          <Grid item md={6}>
-            <div className="delivery-left"></div>
+          <Grid item md={6} className="delivery-left">
+            <div>
+              <img src={deliveryImg} alt="delivery-bike-gif" />
+            </div>
           </Grid>
           <Grid item md={6}>
             <div className="delivery-right">
               <Typography variant="h2"> Delivery Details</Typography>
               <Typography variant="body1" color="initial">
-                {" "}
-                Delivery Content
+                Fast, easy, and delicious delivery right to your doorstep.
               </Typography>
               <form onSubmit={checkOutHandle}>
                 {/* Email */}
@@ -178,7 +191,7 @@ const Delivery = () => {
                 />
                 {/* mobile number */}
                 <div className="mobile-number">
-                  <label htmlFor="mobile">Mobile Number</label>
+                  <label htmlFor="mobile">Mobile Number *</label>
                   <PhoneInput
                     id="mobile"
                     placeholder="Enter phone number"
@@ -194,13 +207,13 @@ const Delivery = () => {
                 {/* Additional Delivery information */}
                 <TextField
                   label="Delivery Instructions"
-                  placeholder="Add more Delivery Instructions"
+                  placeholder="Please give more detailed delivery instructions"
                   variant="standard"
                   type="text"
                   name="deliveryInfo"
                   multiline
                   required
-                  rows={6}
+                  rows={8}
                   fullWidth
                   value={deliveryOptions.deliveryInfo}
                   onChange={handleChange}

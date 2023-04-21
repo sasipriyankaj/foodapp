@@ -1,1 +1,4 @@
 /* My Reservation CSS */
+.my-reservation-section table {
+  margin: 8em 0 10em;
+}

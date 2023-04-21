@@ -1,3 +1,4 @@
+// import important modules
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "../../redux/store/store";
@@ -126,17 +127,19 @@ const MyOrder = () => {
       <>
         <SectionTop title="My Orders" />
         <div className="empty-cart-container">
-          <img src={emptyCart} alt="empty-cart" />
-          <p> You don't have any existing order. </p>
-          <Button
-            variant="contained"
-            size="medium"
-            className="main-btn back-to-menu"
-            endIcon={<RestaurantMenuOutlinedIcon />}
-            onClick={() => navigate("/menu")}
-          >
-            Back to menu
-          </Button>
+          <div>
+            <img src={emptyCart} alt="empty-cart" />
+            <p> You don't have any existing order. </p>
+            <Button
+              variant="contained"
+              size="medium"
+              className="main-btn back-to-menu"
+              endIcon={<RestaurantMenuOutlinedIcon />}
+              onClick={() => navigate("/menu")}
+            >
+              Back to menu
+            </Button>
+          </div>
         </div>
       </>
     );
@@ -144,17 +147,21 @@ const MyOrder = () => {
 
   return (
     <section className="myorder-section">
-      <SectionTop title="My Orders" />
+      <SectionTop title="My Order" />
       <Container>
         <Grid container spacing={1} className="order-container">
           {allOrder.map((order: MyOrderData) => (
             <Grid item md={6} key={order.time}>
-              <Box className="card-container">
-                <h2> Purchase Details</h2>
-                <p>
-                  {" "}
-                  Order from {order.date} at {order.time}
-                </p>
+              <Box className="card-container neumorphic">
+                <div className="top-info">
+                  <h4 className="signature"> Purchase Details</h4>
+                  <p> Name: {order.user.displayName}</p>
+                  <p> Email : {order.user.email}</p>
+                  <p> Phone: {order.phone} </p>
+                  <p>
+                    Order placed on {order.date} at {order.time}
+                  </p>
+                </div>
                 <TableContainer component={Paper} className="table-container">
                   <Table>
                     <TableBody>

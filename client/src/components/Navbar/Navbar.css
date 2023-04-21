@@ -65,3 +65,21 @@ svg.MuiSvgIcon-root.MuiSvgIcon-colorAction {
   color: #fff;
   font-weight: 600;
 }
+.account-info {
+  padding: 1em 2em;
+  display: flex;
+  align-items: center;
+}
+.account-img {
+  margin-right: 1em;
+}
+.account-desc h4 {
+  font-size: 1.6rem;
+  margin-bottom: 0.4em;
+}
+.account-desc p {
+  font-size: 1.4rem;
+}
+hr.MuiDivider-root {
+  margin: 1em 0;
+}

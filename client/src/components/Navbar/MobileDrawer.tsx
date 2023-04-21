@@ -23,6 +23,8 @@ import BrunchDiningIcon from "@mui/icons-material/BrunchDining";
 import TableRestaurantIcon from "@mui/icons-material/TableRestaurant";
 import firebaseAuth from "../../firebase/firebaseAuth";
 import LogoutIcon from "@mui/icons-material/Logout";
+import Divider from "@mui/material/Divider";
+import Avatar from "@mui/material/Avatar";
 
 // Type declaration of MobileDrawerDataType
 interface MobileDrawerDataType {
@@ -73,6 +75,42 @@ const MobileDrawer = ({ mobileOpen, setMobileOpen }: MobileDrawerDataType) => {
 
       {/* List of  Different options */}
       <List sx={{ mt: 3 }}>
+        {/* account -info */}
+        <div className="account-info">
+          <div className="account-img">
+            {user.photoURL ? (
+              <Avatar
+                sx={{
+                  width: 45,
+                  height: 45,
+                }}
+                src={user.photoURL}
+                alt="user-image"
+              >
+                {user.displayName && user.displayName.slice(0, 1)}
+              </Avatar>
+            ) : (
+              <Avatar
+                sx={{
+                  width: 45,
+                  height: 45,
+                  background: "#f91943",
+                  fontWeight: "700",
+                  textTransform: "uppercase",
+                  fontSize: "1.6rem",
+                }}
+              >
+                {user.displayName && user.displayName.slice(0, 1)}
+              </Avatar>
+            )}
+          </div>
+          <div className="account-desc">
+            <h4> {user.displayName} </h4>
+            <p> {user.email} </p>
+          </div>
+        </div>
+        <Divider />
+
         {/* Home  */}
         <NavLink to="/" onClick={handleDrawerToggle}>
           <ListItem disablePadding className="item-list">

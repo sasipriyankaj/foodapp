@@ -11,10 +11,84 @@
 .reservation-left {
   width: 100%;
   height: 100%;
-  background-image: url("../../assets/images/reservation.jpeg");
-  background-size: cover;
-  background-position: center bottom;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .reservation-left img {
-  display: none;
+  height: 90%;
+}
+.reservation-right-container {
+  width: 100%;
+}
+.reservation-right h2 {
+  font-size: 4.8rem;
+  font-weight: 500;
+  color: var(--main-color);
+  margin-bottom: 1rem;
+}
+.reservation-right p {
+  font-size: 1.7rem;
+}
+.reservation-period p {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--main-black);
+}
+.reservation-date {
+  margin: 1em 0;
+}
+.reservation-date div,
+.reservation-time div {
+  width: 100%;
+}
+.reservation-date .MuiInputBase-root {
+  overflow: hidden;
+}
+.reservation-date .MuiInputAdornment-root {
+  justify-content: flex-end;
+  margin-right: 1em;
+}
+.person-reservation label {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--main-black);
+}
+button.MuiButtonBase-root.MuiPickersDay-root.Mui-selected {
+  background-color: var(--main-color);
+}
+.MuiPickersCalendarHeader-label {
+  font-size: 1.4rem;
+}
+button.MuiButtonBase-root
+  .MuiSvgIcon-root.MuiSvgIcon-fontSizeInherit.css-1vooibu-MuiSvgIcon-root {
+  font-size: 2rem;
+}
+.MuiClock-root .MuiClock-pin,
+.MuiClock-root .MuiClockPointer-root,
+.MuiClock-root .MuiClockPointer-thumb,
+.MuiClock-root .MuiClock-wrapper,
+button.MuiPickersYear-yearButton.Mui-selected {
+  background-color: var(--main-color) !important;
+}
+
+.MuiClock-root .MuiClockPointer-thumb {
+  border: 16px solid var(--main-color);
+}
+.MuiPickersToolbar-root span#\:r5\: {
+  font-size: 1.4rem;
+}
+
+.MuiTimePickerToolbar-hourMinuteLabel .MuiButtonBase-root.MuiButton-root span {
+  font-size: 4rem !important;
+}
+span.MuiClockNumber-root {
+  font-size: 1.6rem !important;
+}
+.MuiDialogActions-root button.MuiButtonBase-root.MuiButton-root.MuiButton-text {
+  font-size: 1.4rem !important;
+  color: var(--main-color);
+}
+.reservation-comment textarea {
+  line-height: 1.75;
 }

@@ -9,7 +9,6 @@ import logo from "../../assets/images/logo.png";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import NavLink from "../NavLink/NavLink";
-import "./Navbar.css";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store/store";
 import firebaseAuth from "../../firebase/firebaseAuth";
@@ -25,6 +24,8 @@ import Badge from "@mui/material/Badge";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useNavigate } from "react-router";
 import MobileDrawer from "./MobileDrawer";
+import Divider from "@mui/material/Divider";
+import "./Navbar.css";
 
 const Navbar = () => {
   // Important State Declare
@@ -221,7 +222,44 @@ const Navbar = () => {
                           vertical: "bottom",
                         }}
                       >
-                        <MenuItem onClick={handleClose}>
+                        {/* account info */}
+                        <div className="account-info">
+                          <div className="account-img">
+                            {user.photoURL ? (
+                              <Avatar
+                                sx={{
+                                  width: 45,
+                                  height: 45,
+                                }}
+                                src={user.photoURL}
+                                alt="user-image"
+                              >
+                                {user.displayName &&
+                                  user.displayName.slice(0, 1)}
+                              </Avatar>
+                            ) : (
+                              <Avatar
+                                sx={{
+                                  width: 45,
+                                  height: 45,
+                                  background: "#f91943",
+                                  fontWeight: "700",
+                                  textTransform: "uppercase",
+                                  fontSize: "1.6rem",
+                                }}
+                              >
+                                {user.displayName &&
+                                  user.displayName.slice(0, 1)}
+                              </Avatar>
+                            )}
+                          </div>
+                          <div className="account-desc">
+                            <h4> {user.displayName} </h4>
+                            <p> {user.email} </p>
+                          </div>
+                        </div>
+                        <Divider />
+                        <MenuItem onClick={handleClose} className="menu-item-desk">
                           <span
                             onClick={() => navigate("/myorder")}
                             style={{ fontSize: "16px" }}

@@ -1,4 +1,58 @@
 /* Delivery CSS */
 .delivery-section {
+  margin-top: 5em;
   padding: 15em 0 10em;
+}
+.delivery-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5em solid #e0e0e0;
+  border-radius: 1em;
+  -webkit-border-radius: 1em;
+  -moz-border-radius: 1em;
+  -ms-border-radius: 1em;
+  -o-border-radius: 1em;
+}
+.delivery-right h2 {
+  font-size: 4.8rem;
+  font-weight: 500;
+  color: var(--main-color);
+  margin-bottom: 1rem;
+}
+.delivery-right p {
+  font-size: 1.7rem;
+  color: var(--light-black);
+}
+/* mobile number */
+.mobile-number {
+  margin: 1em 0;
+}
+.mobile-number label {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--main-black);
+}
+.PhoneInput input {
+  font-size: 1.7rem;
+  padding: 1em;
+  background: #e0e0e0;
+  border: 0;
+  outline: 0;
+  border-bottom: 4px solid #ddd;
+  transition: 0.15s ease-in-out;
+  -webkit-transition: 0.15s ease-in-out;
+  -moz-transition: 0.15s ease-in-out;
+  -ms-transition: 0.15s ease-in-out;
+  -o-transition: 0.15s ease-in-out;
+}
+.PhoneInput input:focus {
+  border-bottom: 4px solid var(--main-color);
+}
+.PhoneInputCountry {
+  width: 40px;
+}
+.PhoneInputCountryIcon.PhoneInputCountryIcon--border {
+  width: 40px;
+  height: 25px;
 }

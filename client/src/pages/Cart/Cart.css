@@ -98,7 +98,12 @@ button.swal2-cancel.swal2-styled.swal2-default-outline {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin: 15em;
+  margin: 15em 0;
+}
+.empty-cart-container div {
+  display: grid;
+  place-items: center;
+  text-align: center;
 }
 .empty-cart-container img {
   width: 15rem;

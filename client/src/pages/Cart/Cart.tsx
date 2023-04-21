@@ -68,8 +68,6 @@ const Cart = () => {
     }
   };
 
-  console.log(coupon.length);
-
   // get Total
   const getTotal = () => {
     if (couponState) {
@@ -241,18 +239,20 @@ const Cart = () => {
       <>
         <SectionTop title="Cart" />
         <div className="empty-cart-container">
-          <img src={emptyCart} alt="empty-cart" />
-          <p> No item added to the cart! </p>
-          <Button
-            variant="contained"
-            size="medium"
-            className="main-btn back-to-menu"
-            endIcon={<RestaurantMenuOutlinedIcon />}
-            onClick={() => navigate("/menu")}
-            style={{ fontSize: "1.7rem" }}
-          >
-            Back to menu
-          </Button>
+          <div>
+            <img src={emptyCart} alt="empty-cart" />
+            <p> No item added to the cart! </p>
+            <Button
+              variant="contained"
+              size="medium"
+              className="main-btn back-to-menu"
+              endIcon={<RestaurantMenuOutlinedIcon />}
+              onClick={() => navigate("/menu")}
+              style={{ fontSize: "1.7rem" }}
+            >
+              Back to menu
+            </Button>
+          </div>
         </div>
       </>
     );
