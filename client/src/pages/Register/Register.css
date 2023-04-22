@@ -35,3 +35,13 @@
   padding: 0.8em;
   font-size: 1.7rem;
 }
+
+/* Extra small devices (phones, 900px and down) */
+@media only screen and (max-width: 900px) {
+  .register-content {
+    max-width: 80%;
+  }
+  .register-content {
+    max-width: 95%;
+  }
+}

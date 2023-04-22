@@ -1,10 +1,11 @@
-/* Error Payment Css */
-.error-payment-section {
+/* Delivered CSS */
+
+.delivered-section {
   padding: 15em 0 10em;
   display: grid;
   place-items: center;
 }
-.error-payment-content {
+.delivered-content {
   display: grid;
   place-items: center;
   position: relative;
@@ -18,31 +19,40 @@
   border: 1px solid rgba(255, 255, 255, 0.18);
   text-align: center;
 }
-.error-content {
-  width: 80%;
-  margin: 0 auto;
-  display: grid;
-  place-items: center;
+.delivered-content img {
+  width: 50%;
 }
-.error-content h2 {
+.delivered-content h2 {
   font-size: 3.5rem;
   color: var(--main-color);
   margin: 2rem 0;
 }
-.error-content p {
+.delivered-content p {
   font-size: 2rem;
-  line-height: 1.25;
+  line-height: 1.5;
   text-align: center;
   margin-bottom: 2rem;
+  width: 80%;
 }
-.error-content .main-btn {
+.delivered-content .main-btn {
   font-size: 1.8rem;
 }
-
 /* Extra small devices (phones, 900px and down) */
 @media only screen and (max-width: 900px) {
-  .error-payment-content {
+  .delivered-content {
     width: 90%;
-    padding: 2em;
+    padding: 3em;
+  }
+  .delivered-content img {
+    width: 80%;
+  }
+}
+/* Extra small devices (phones, 900px and down) */
+@media only screen and (max-width: 768px) {
+  .delivered-content img {
+    width: 100%;
+  }
+  .delivered-content p {
+    width: 100%;
   }
 }

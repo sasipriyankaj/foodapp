@@ -2,10 +2,14 @@ import failedPayment from "../../assets/images/payment-error.jpg";
 import "./ErrorPayment.css";
 import Button from "@mui/material/Button";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { useNavigate } from "react-router-dom";
 
 const ErrorPayment = () => {
+  // navigate function
+  const navigate = useNavigate();
+
   return (
-    <section className="error-payment-section">
+    <section className="error-payment-section" data-aos="fade-up">
       <div className="error-payment-content">
         <div className="error-img">
           <img src={failedPayment} alt="failed-img" />
@@ -22,6 +26,7 @@ const ErrorPayment = () => {
             size="large"
             endIcon={<ShoppingCartIcon />}
             className="main-btn"
+            onClick={() => navigate("/cart")}
           >
             Back to Cart
           </Button>

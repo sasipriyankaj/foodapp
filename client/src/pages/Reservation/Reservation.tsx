@@ -110,7 +110,8 @@ const Reservation = () => {
     // show the successs message
     Swal.fire({
       icon: "success",
-      title: "Your reservation added!",
+      title: "Reservation Confirmed!",
+      text: "Your reservation has been added successfully!",
     });
 
     // clear message and set default person

@@ -147,10 +147,10 @@ const MyOrder = () => {
     <section className="myorder-section">
       <SectionTop title="My Order" />
       <Container>
-        <Grid container spacing={1} className="order-container">
+        <Grid container spacing={2} className="order-container">
           {allOrder.map((order: MyOrderData) => (
-            <Grid item md={6} key={order.time} data-aos="zoom-in">
-              <Box className="card-container neumorphic">
+            <Grid item md={6} key={order.time}>
+              <Box className="card-container neumorphic" data-aos="zoom-in">
                 <div className="top-info">
                   <h4 className="signature"> Purchase Details</h4>
                   <p> Name: {order.user.displayName}</p>

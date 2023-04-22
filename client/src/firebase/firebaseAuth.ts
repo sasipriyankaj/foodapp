@@ -89,6 +89,7 @@ const firebaseAuth = () => {
                 text: "You have successfully registered in our Website!",
               });
 
+              console.log(from);
               // redirect the user to the 'from' location if it exists, or to the default route otherwise
               navigate(from ? from.pathname : "/", { replace: true });
             })
@@ -193,7 +194,7 @@ const firebaseAuth = () => {
         // show the successsfully logout message
         Swal.fire({
           icon: "success",
-          title: "Successfully logout",
+          title: "Successfully logged out",
           text: "Hopefully we will see you again!",
         });
       })
