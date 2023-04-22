@@ -50,7 +50,7 @@ const MyOrder = () => {
 
   const getCurrentOrder = () => {
     setLoading(true);
-    fetch("http://localhost:4000/myorder")
+    fetch("https://mrchef.onrender.com/myorder")
       .then((response) => response.json())
       .then((data) => {
         if (data.phone) {

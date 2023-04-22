@@ -88,7 +88,7 @@ const Delivery = () => {
     };
 
     // post data
-    await fetch("http://localhost:4000/checkout", {
+    await fetch("https://mrchef.onrender.com/checkout", {
       method: "POST",
       headers: {
         "content-type": "application/json",
