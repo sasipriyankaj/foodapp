@@ -19,6 +19,7 @@
   font-weight: 500;
   color: var(--main-color);
   margin-bottom: 1rem;
+  letter-spacing: -0.3rem;
 }
 .delivery-right p {
   font-size: 1.7rem;
@@ -55,4 +56,19 @@
 .PhoneInputCountryIcon.PhoneInputCountryIcon--border {
   width: 40px;
   height: 25px;
+}
+
+@media only screen and (max-width: 600px) {
+  .delivery-right h2 {
+    font-size: 3.8rem;
+    letter-spacing: -0.1rem;
+  }
+  .delivery-right p {
+    font-size: 1.6rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .delivery-right h2 {
+    font-size: 3rem;
+  }
 }
