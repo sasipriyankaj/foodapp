@@ -68,6 +68,7 @@ function App() {
         <Route path="/delivered" element={<Delivered />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/cancel" element={<ErrorPayment />} />
+        <Route path="*" element={<Home />} />
       </Routes>
     </MainTemplate>
   );
