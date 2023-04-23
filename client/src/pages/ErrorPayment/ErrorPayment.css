@@ -46,3 +46,11 @@
     padding: 2em;
   }
 }
+@media only screen and (max-width: 600px) {
+  .error-content h2 {
+    font-size: 2.8rem;
+  }
+  .error-content p {
+    font-size: 1.6rem;
+  }
+}

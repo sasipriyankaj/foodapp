@@ -153,7 +153,7 @@ const Login = () => {
                   <span>
                     <img src={googleIcon} alt="google-icon" />{" "}
                   </span>
-                  Continue with Google
+                  <span> Continue with Google</span>
                 </Button>
               </div>
             </div>

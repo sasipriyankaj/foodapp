@@ -38,7 +38,7 @@ const Reviews = () => {
       <Container>
         <Grid container spacing={4} data-aos="fade-right">
           <Grid item md={6}>
-            <Typography variant="h2"> Reviews About Us</Typography>
+            <Typography variant="h2"> Our Reviews</Typography>
             <Typography variant="body1" className="review-section-desc">
               From mouth-watering dishes to top-notch service, see what our
               customers have to say about their visit to our restaurant.

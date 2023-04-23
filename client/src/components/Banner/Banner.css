@@ -148,3 +148,37 @@
     transform: translateY(0) scale(1);
   }
 }
+
+/* some initial mobile css */
+@media only screen and (max-width: 600px) {
+  .banner {
+    padding: 14em 0 5em;
+  }
+  .banner h2 {
+    font-size: 5.4rem;
+    letter-spacing: -0.1rem;
+  }
+  .banner p {
+    font-size: 1.6rem;
+  }
+  .banner-right {
+    margin-top: 3.5em !important;
+  }
+  .banner-right-content .img1 {
+    left: 0%;
+  }
+  .banner-right-content .img2 {
+    top: -8%;
+    right: -6%;
+  }
+  .banner-right-content .img3 {
+    bottom: -5%;
+    right: -6%;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .banner h2 {
+    font-size: 4rem;
+    line-height: 1.1;
+  }
+}

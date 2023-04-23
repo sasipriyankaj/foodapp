@@ -20,6 +20,7 @@
 .login-left-content h2 {
   font-size: 4.8rem;
   font-weight: 500;
+  letter-spacing: -0.3rem;
   color: var(--main-color);
   margin-bottom: 1rem;
 }
@@ -107,4 +108,24 @@ form .main-btn {
   height: 100%;
   animation: zoom 20s infinite ease-in-out;
   -webkit-animation: zoom 20s infinite ease-in-out;
+}
+
+@media only screen and (max-width: 600px) {
+  .login-left-content h2 {
+    font-size: 4rem;
+    letter-spacing: -0.1rem;
+  }
+  .login-left-content p {
+    font-size: 1.6rem;
+  }
+  .login-section h4 {
+    font-size: 1.7rem;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .login-with-social-media button {
+    font-size: 1.4rem;
+    padding: 1em;
+  }
 }

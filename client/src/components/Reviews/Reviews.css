@@ -6,9 +6,9 @@
   position: relative !important;
 }
 .review-section h2 {
-  font-size: 4rem;
-  letter-spacing: -0.1rem;
   line-height: 110%;
+  font-size: 5.4rem;
+  letter-spacing: -0.3rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
 }
@@ -118,5 +118,26 @@
   .swiper-button-next,
   .swiper-button-prev {
     display: none !important;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .review-section {
+    padding: 5em 0;
+  }
+  .review-section .review-section-desc {
+    font-size: 1.6rem;
+  }
+  .review-section .review-section-desc {
+    font-size: 1.6rem;
+  }
+  .review-section h2 {
+    letter-spacing: -0.1rem;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .review-section h2 {
+    font-size: 4rem;
+    line-height: 1.1;
   }
 }

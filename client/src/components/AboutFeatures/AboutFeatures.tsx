@@ -12,30 +12,30 @@ const AboutFeatures = () => {
         <Grid container spacing={7}>
           {AboutFeaturesData.map((data) => {
             return (
-              <Grid
-                item
-                key={data.id}
-                md={6}
-                lg={4}
-                sx={{ mt: 4 }}
-                data-aos="zoom-in"
-              >
+              <Grid item key={data.id} lg={6} sx={{ mt: 4 }} data-aos="zoom-in">
                 <Grid container spacing={1}>
-                  <Grid item xs={3} className="feature-left">
-                    <Typography
-                      variant="h2"
-                      className="number-cursive"
-                      sx={{ textAlign: "center" }}
+                  <div className="feature-container">
+                    <Grid item lg={3} md={12} className="feature-left">
+                      <Typography
+                        variant="h2"
+                        className="number-cursive"
+                        sx={{ textAlign: "center" }}
+                      >
+                        {data.itemNumber}
+                      </Typography>
+                    </Grid>
+                    <Grid
+                      item
+                      lg={9}
+                      md={12}
+                      className="feature-right-container"
                     >
-                      {data.itemNumber}
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={9}>
-                    <div className="feature-right">
-                      <Typography variant="h2"> {data.title} </Typography>
-                      <Typography variant="body1"> {data.desc} </Typography>
-                    </div>
-                  </Grid>
+                      <div className="feature-right">
+                        <Typography variant="h2"> {data.title} </Typography>
+                        <Typography variant="body1"> {data.desc} </Typography>
+                      </div>
+                    </Grid>
+                  </div>
                 </Grid>
               </Grid>
             );

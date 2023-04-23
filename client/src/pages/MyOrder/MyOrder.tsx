@@ -147,10 +147,14 @@ const MyOrder = () => {
     <section className="myorder-section">
       <SectionTop title="My Order" />
       <Container>
-        <Grid container spacing={2} className="order-container">
+        <Grid container spacing={3} className="order-container">
           {allOrder.map((order: MyOrderData) => (
-            <Grid item md={6} key={order.time}>
-              <Box className="card-container neumorphic" data-aos="zoom-in">
+            <Grid item lg={6} key={order.time}>
+              <Box
+                className="card-container neumorphic"
+                data-aos="zoom-in"
+                sx={{ height: "100%" }}
+              >
                 <div className="top-info">
                   <h4 className="signature"> Purchase Details</h4>
                   <p> Name: {order.user.displayName}</p>
@@ -167,7 +171,10 @@ const MyOrder = () => {
                         return (
                           <React.Fragment key={item.title}>
                             <TableRow>
-                              <TableCell align="center" className="cell-width">
+                              <TableCell
+                                align="center"
+                                className="cell-width img-cell"
+                              >
                                 <img src={item.img} alt="item-img" />
                               </TableCell>
                               <TableCell align="left" className="cell-width">
