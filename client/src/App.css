@@ -76,7 +76,19 @@ img {
 
 /* Extra small devices (phones, 900px and down) */
 @media only screen and (max-width: 900px) {
+  /* Sweet Alert css */
+  .swal2-popup {
+    padding: 2em 0 !important;
+  }
   .swal2-container.swal2-center > .swal2-popup {
-    width: 95%;
+    width: 98%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .swal2-title {
+    font-size: 2.5rem !important;
+  }
+  .swal2-html-container {
+    font-size: 1.6rem !important;
   }
 }
