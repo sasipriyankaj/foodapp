@@ -106,7 +106,7 @@ const Reservation = () => {
     // send data to firebase
     reserveTable(reserveData);
 
-    // after successfully added to cart, show a success message
+    // after successfully reservation, show a success message
     // show the successs message
     Swal.fire({
       icon: "success",

@@ -48,6 +48,14 @@ const MyOrder = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const successNotification = () => {
+    Swal.fire({
+      icon: "success",
+      title: "Payment Confirmed",
+      text: "Your order is on the way!!!",
+    });
+  };
+
   const getCurrentOrder = () => {
     setLoading(true);
     fetch("https://mrchef.onrender.com/myorder")
@@ -60,6 +68,7 @@ const MyOrder = () => {
           setLoading(false);
           //   clear the cart
           dispatch(clearCart());
+          successNotification();
         }
       })
       .catch((error) => console.error(error));
