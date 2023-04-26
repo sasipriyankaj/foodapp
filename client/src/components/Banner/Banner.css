@@ -176,9 +176,3 @@
     right: -6%;
   }
 }
-@media only screen and (max-width: 400px) {
-  .banner h2 {
-    font-size: 4rem;
-    line-height: 1.1;
-  }
-}
