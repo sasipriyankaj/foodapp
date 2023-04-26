@@ -6,7 +6,7 @@ Website link: [Mr. Chef](https://mrchef1.netlify.app/)
 
 ## Code
 
-This web application consists of `Client` and `Server`. The `Client` side includes the front-end of the application, which can be found here: [Client Code](https://github.com/joydey100/mrchef). The `Server` side includes the back-end of the application, which can be found here: [Server Code](https://github.com/joydey100/mrchef-server).
+This web application consists of `Client` and `Server`. The `Client` side includes the front-end of the application, which can be found here: [Client Code](https://github.com/joydey100/mrchef){:target="\_blank"}. The `Server` side includes the back-end of the application, which can be found here: [Server Code](https://github.com/joydey100/mrchef-server){:target="\_blank"}.
 
 ## Technologies Used
 
