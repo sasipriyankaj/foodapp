@@ -1,5 +1,7 @@
 # [Mr. Chef](https://mrchef1.netlify.app/)
 
+![Mr. Chef web image](image_path "Optional Title")
+
 This is a web application for a restaurant that allows customers to order food from a menu, make reservations, and complete payments using Stripe. The application is built using React, TypeScript, and Node.js with Express.
 
 Website link: [Mr. Chef](https://mrchef1.netlify.app/)
