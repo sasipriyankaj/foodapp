@@ -4,11 +4,9 @@
 
 This is a web application for a restaurant that allows customers to order food from a menu, make reservations, and complete payments using Stripe. The application is built using React, TypeScript, and Node.js with Express.
 
-Website link: [Mr. Chef](https://mrchef1.netlify.app/)
-
-## Code
-
 This web application consists of Client and Server. The Client side includes the front-end of the application, which can be found here: [Client Code](https://github.com/joydey100/mrchef). The Server side includes the back-end of the application, which can be found here: [Server Code](https://github.com/joydey100/mrchef-server).
+
+Here's the live website: [Mr. Chef](https://mrchef1.netlify.app/)
 
 ## Technologies Used
 
